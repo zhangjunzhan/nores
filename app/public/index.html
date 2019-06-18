@@ -3,6 +3,14 @@
 <head>
 	<meta charset="UTF-8">
 	<title>首页</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+	
+		}
+	</style>
+	<link rel="stylesheet" href="stylesheets/L_index.css">
 	<link rel="stylesheet" href="stylesheets/index.css">
 	<script src="jquery.js"></script>
 </head>
@@ -21,14 +29,68 @@
 			<span class="z_login_in" id="login_in">登录</span> / <span class="z_login_up" id="login_up">注册</span>
 		</div>
 	</div>
-	<div></div>
-	<div></div>
+	<!-- 中间搜索 -->
+	<div class="l_search">
+		<!-- 搜索框 -->
+		<div class="l_box">
+			<div>
+				<input type="text" style="width: 75%;margin-left: 7%;height: 40px;background-color: red;"><button style="width: 5%;height: 40px;" id="search_l">搜索</button>
+			</div>
+			<div style="padding-left: 7%;margin-top: 10px;" class="l_recommend">
+				<span>aa</span>
+				<span>bb</span>
+				<span>cc</span>
+				<span>dd</span>
+				<span>ee</span>
+			</div>
+		</div>
+		<div class="l_box clearfix" style="margin-top: 10px;">
+			<!-- 一本推荐 -->
+			<div style="width: 20%;height: 200px;background-color: pink;margin-left: 2%;margin-right: 2%;float: left;margin-top: 5px;margin-bottom: 5px;" class="l_print">
+				<!-- 封面 -->
+				<img src="http://img2.imgtn.bdimg.com/it/u=1210667130,1030867550&fm=26&gp=0.jpg" alt="">
+				<!-- 书名 -->
+				<p style="width: 80%;margin-left: 10%;margin-right: 10%;text-align: center;line-height: 30px;">《<span>xx</span>》</p>
+				<!-- 作者 -->
+				<p style="width: 80%;margin-left: 10%;margin-right: 10%;text-align: center;line-height: 30px;"><span>作者</span></p>
+
+			</div>
+			
+		</div>
+	</div>
+	<!-- 底部 -->
+	<div style="min-height: 30px;">
+		<p style="text-align: center;line-height: 30px;background-color: pink">
+			下载书旗小说客户端
+		</p>
+		<p style="text-align: center;line-height: 30px">
+			海量图书，更高品质阅读体验
+		</p>
+		<p style="text-align: center;line-height: 30px">
+			©2016书旗网shuqi.com
+		</p>
+		<p style="text-align: center;line-height: 30px">
+			粤ICP备13078413号-1
+		</p>
+		<p style="text-align: center;line-height: 30px">
+			增值电信业务经营许可证：粤B2-20130742
+		</p>
+		<p style="text-align: center;line-height: 30px">
+			广州阿里巴巴文学信息技术有限公司 版权所有
+		</p>
+		<p style="text-align: center;line-height: 30px">
+			广州市天河区黄埔大道西平云路163号广电平云广场B塔13层自编03单元
+		</p>
+		<p style="text-align: center;line-height: 30px">
+			0571-26883636
+		</p>
+	</div>
+
 </body>
 	<script>
 		$('.a_z').parent().siblings('li').hide();
 		$('.a_z').click(function(){
 			$(this).parent().siblings('li').toggle(100);
 		})
-		
 	</script>
 </html>
