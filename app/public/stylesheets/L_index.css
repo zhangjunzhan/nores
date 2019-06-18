@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .l_search{
 	width: 80%;
 	background-color: red;
@@ -22,29 +21,4 @@
 	width: 80%;
 	margin-left: 10%;
 	margin-right: 10%;
-=======
-.l_search{
-	width: 80%;
-	background-color: red;
-	min-height: 30px;
-	margin: 0 auto;
-}
-.l_box{
-	width: 80%;
-	min-height: 30px;
-	background-color: yellow;
-	margin: 0 auto;
-}
-.l_recommend span{
-	border:1px solid #ccc;
-	padding:5px 10px;
-}
-.clearfix:before,.clearfix:after{content:'';display:block;clear:both;width:0;visibility:hidden}
-.clearfix{zoom:1;}
-
-.l_print img{
-	width: 80%;
-	margin-left: 10%;
-	margin-right: 10%;
->>>>>>> e5d0665b141bd8fd5cafc589a13028d79cedeb46
 }
