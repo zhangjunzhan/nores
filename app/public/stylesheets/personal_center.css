@@ -1,0 +1,9 @@
+*{margin: 0;padding: 0;	box-sizing:border-box;}
+ul,ol{list-style-type: none;}
+img{vertical-align: top;}
+a{text-decoration: none;}
+em,i{font-style: normal;}
+.clearfix{zoom:1;}     
+.clearfix::after,.clearfix::before{content:'';display:block;width:0;height:0;visibility:hidden;clear:both;}
+.fl{float: left;}
+.fr{float: right;}
