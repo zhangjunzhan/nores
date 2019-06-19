@@ -3,30 +3,39 @@
 <head>
 	<meta charset="UTF-8">
 	<title>首页</title>
-	<link rel="stylesheet" href="stylesheets/index.css">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+	
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="stylesheets/index.css">
 	<script src="jquery.js"></script>
 </head>
 <body>
+	<!-- 头部 -->
 	<div class="hearder_z clearfix">
 		<div class="img_z fl">
 			<a href="index.html"><img src="image/logo.beebc.png" alt=""></a>
 		</div>
-		<ul class="list_z fr">
+		<ul class="list_z fr" id="chuxian_l" style="display: none">
 			<li><a href="#" class="a_z">&#9763</a></li>
-			<li class="z_z">书架</li>
-			<li class="z_z" id="personal_center_btn">个人中心</li>
-			<li class="z_z">退出登录</li>
+			<li class="z_z" id="bookrack_l">书架</li>
+			<li class="z_z" id="personalCenter_l">个人中心</li>
+			<li class="z_z" id="quit_l">退出登录</li>
 		</ul>
-		<div class="fr" style="padding-right:30px;">
+		<div class="fr" id="login_l">
 			<span class="z_login_in" id="login_in">登录</span> / <span class="z_login_up" id="login_up">注册</span>
 		</div>
+
 	</div>
 	<!-- 中间搜索 -->
 	<div class="l_search">
 		<!-- 搜索框 -->
 		<div class="l_box">
 			<div>
-				<input type="text" class="search_txt" placeholder="不正经の搜索" id="search_txt"><button class="search_l" id="search_l">搜索</button>
+				<input type="text" style="width: 75%;margin-left: 7%;height: 40px;" id="search_in"><button style="width: 5%;height: 40px;" id="search_l">搜索</button>
 			</div>
 			<div style="padding-left: 7%;margin-top: 10px;" class="l_recommend">
 				<span>aa</span>
@@ -36,43 +45,161 @@
 				<span>ee</span>
 			</div>
 		</div>
-		<div class="l_box clearfix" style="margin-top: 10px;">
+		<div class="l_box clearfix" style="margin-top: 10px; display: block;" id="all_i">
 			<!-- 一本推荐 -->
-			<div class="l_print">
+			<!-- <div style="width: 20%;height: 280px;background-color: pink;margin-left: 2%;margin-right: 2%;float: left;margin-top: 5px;margin-bottom: 5px;" class="l_print"> -->
 				<!-- 封面 -->
-				<img src="../../../../../04_老曾带的第4个月/11.29轮播图/1.png" alt="">
+				<!-- <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1718395925,3485808025&fm=27&gp=0.jpg" alt=""> -->
 				<!-- 书名 -->
-				<p class="txt_name">《<span>xx</span>》</p>
+				<!-- <p style="width: 80%;margin-left: 10%;margin-right: 10%;text-align: center;line-height: 30px;">《<span>xx</span>》</p> -->
 				<!-- 作者 -->
-				<p class="txt_author"><span>作者</span></p>
-			</div>
+			<!-- 	<p style="width: 80%;margin-left: 10%;margin-right: 10%;text-align: center;line-height: 30px;"><span>作者</span></p>
+
+			</div> -->
+			
 		</div>
+		<ul id="ul" class="l_box clearfix" style="margin-top: 10px;display: none">
+			
+		</ul>
 	</div>
 	<!-- 底部 -->
-	<div class="foot">
-		<p>下载书旗小说客户端</p>
-		<p>海量图书，更高品质阅读体验</p>
-		<p >©2002起点网qidian.com</p>
-		<p>粤ICP备13078413号-1</p>
-		<p>增值电信业务经营许可证：粤B2-20130742</p>
-		<p>上海玄霆娱乐信息科技有限公司 版权所有</p>
-		<p>广州市天河区黄埔大道西平云路163号广电平云广场B塔13层自编03单元</p>
-		<p>0571-26883636</p>
+	<div style="min-height: 30px;">
+		<p style="text-align: center;line-height: 30px;background-color: pink">
+			下载书旗小说客户端
+		</p>
+		<p style="text-align: center;line-height: 30px">
+			海量图书，更高品质阅读体验
+		</p>
+		<p style="text-align: center;line-height: 30px">
+			©2016书旗网shuqi.com
+		</p>
+		<p style="text-align: center;line-height: 30px">
+			粤ICP备13078413号-1
+		</p>
+		<p style="text-align: center;line-height: 30px">
+			增值电信业务经营许可证：粤B2-20130742
+		</p>
+		<p style="text-align: center;line-height: 30px">
+			广州阿里巴巴文学信息技术有限公司 版权所有
+		</p>
+		<p style="text-align: center;line-height: 30px">
+			广州市天河区黄埔大道西平云路163号广电平云广场B塔13层自编03单元
+		</p>
+		<p style="text-align: center;line-height: 30px">
+			0571-26883636
+		</p>
 	</div>
+
 </body>
 	<script>
-		//跳转列表
+		var href = 'http://localhost:8000'
 		$('.a_z').parent().siblings('li').hide();
 		$('.a_z').click(function(){
-			$(this).parent().siblings('li').toggle(50);
-		})
-		//跳转到个人中心
-		$('#personal_center_btn').click(function(){
-			location.href='personal_center.html'
+			$(this).parent().siblings('li').toggle(100);
 		})
 		//注册
 		login_up.onclick = function(){
+			// alert(123)
 			location.href='login.html'
+		} 
+		//登录
+		login_in.onclick = function(){
+			location.href='login.html'
+		}
+		//登录后的
+		if(localStorage.login){
+			var login_data = JSON.parse(localStorage.login);
+            console.log(login_data)
+            login_l.style.display='none';
+            chuxian_l.style.display='block'
+		}
+		//退出登录
+		quit_l.onclick = function(){
+			// alert(123)
+			chuxian_l.style.display='none';
+			login_l.style.display='block';
+			localStorage.login = ''
+		}
+		//书架
+		bookrack_l.onclick = function(){
+			// alert(123)
+			location.href='bookrack.html'
+		}
+		//个人中心
+		personalCenter_l.onclick=function(){
+			// alert(123);
+			location.href = 'personalCenter.html'
+		}
+		//模糊搜索
+		var login_data = JSON.parse(localStorage.login);
+            console.log(login_data)
+		var book = JSON.parse(localStorage.book);
+         console.log(book)
+		search_l.onclick = function(){
+			all_i.style.display = 'none';
+			ul.style.display = 'block'
+			// alert(123)
+			$.ajax({
+				url:href+'/users/search_i',
+				type:'post',
+				data:{
+					names:search_in.value
+				},
+				success(data){
+					console.log(data);
+					var str ='';
+					for(var i=0;i<data.length;i++){
+						str+=`<li>
+							<div style="width: 20%;height: 280px;background-color: pink;margin-left: 2%;margin-right: 2%;float: left;margin-top: 5px;margin-bottom: 5px;" class="l_print">
+				<!-- 封面 -->
+				<img src="${data[i].img}" alt="">
+				<!-- 书名 -->
+				<p style="width: 80%;margin-left: 10%;margin-right: 10%;text-align: center;line-height: 30px;">《<span>${data[i].names}</span>》</p>
+				<!-- 作者 -->
+				<p style="width: 80%;margin-left: 10%;margin-right: 10%;text-align: center;line-height: 30px;"><span>${login_data.user}</span></p>
+
+			</div>
+				</li>		`
+					}
+					ul.innerHTML=str
+				}
+			})
+		}
+		//推荐
+		$.ajax({
+			url:href+'/users/recommend_l',
+			type:'post',
+			success(data){
+				console.log(data)
+				var str = '';
+				for(var i=0;i<data.length;i++){
+					str+=`
+							<div style="width: 20%;height: 280px;background-color: pink;margin-left: 2%;margin-right: 2%;float: left;margin-top: 5px;margin-bottom: 5px;" class="l_print" onclick = 'abc("${data[i].img}","${data[i].loginuid}","${data[i].names}","${data[i].texts}","${data[i].uid}")'>
+				<!-- 封面 -->
+				<img src="${data[i].img}" alt="">
+				<!-- 书名 -->
+				<p style="width: 80%;margin-left: 10%;margin-right: 10%;text-align: center;line-height: 30px;">《<span>${data[i].names}</span>》</p>
+				<!-- 作者 -->
+				<p style="width: 80%;margin-left: 10%;margin-right: 10%;text-align: center;line-height: 30px;">作者：<span>${login_data.user}</span></p>
+
+			</div>
+					`
+				}
+				all_i.innerHTML = str
+			}
+		})
+		//详情
+		function abc(a,b,c,d,e){
+			var json = {
+				img:a,
+				loginuid:b,
+				names:c,
+				texts:d,
+				uid:e
+			}
+			localStorage.books = JSON.stringify(json)
+			// alert(123)
+			location.href='details_page.html'
 		}
 	</script>
 </html>

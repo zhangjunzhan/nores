@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>章节发布页面</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/index.css">
     <link rel="stylesheet" href="stylesheets/chapter_publishing_page.css">
+    <script src="jquery.js"></script>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script src="jquery.js"></script>
+    
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
@@ -41,17 +43,17 @@
         <!-- message -->
         <div class="message_z clearfix">
             <!-- 图片 -->
-            <div class="message_img_z fl">
-                <img src="../../../img/1.jpg" alt="">
+            <div class="message_img_z fl"  id="cover_c">
+                
             </div>
             <!-- 信息 -->
             <div class="message_txt_z fl">
-                <h3 class="message_txt_name_z">小说名字</h3>
-                <div>作者: <a href="#" class="message_txt_author_z"> 人间失格</a></div>
+                <h3 class="message_txt_name_z">《<span id="nover_c"></span>》</h3>
+                <div>作者: <a href="#" class="message_txt_author_z" id="author_c"> 人间失格</a></div>
                 简介:
                 <div>
                     <p class="message_txt_intro_z" id="message_txt_intro_z">
-                        大灾变百年，一个全新的职业诞生，他们掌控铁，铜，磷，金，硅，碳……高能看着自己的隐藏天赋，惊呆了：铁100%，铜100%，锡100%，银100%，金100%，磷100%，硫100%，硅100%……
+                        
                     </p><a href="javascript:;" id="gd">展开</a>
                 </div>
             </div>
@@ -69,11 +71,11 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="name-txt">章节</label>
-                                <input type="text" class="form-control" id="name-txt" placeholder="章节">
+                                <input type="text" class="form-control" id="name_txt" placeholder="章节">
                             </div>
                             <div class="form-group">
                                 <label for="name-z">章节名字</label>
-                                <input type="text" class="form-control" id="name-z" placeholder="章节名字">
+                                <input type="text" class="form-control" id="name_z" placeholder="章节名字">
                             </div>
                             <!-- 富文本 -->
                             <div class='content' id="content">
@@ -144,15 +146,14 @@
         </div>
         <!-- 章节 -->
         <ul id="list">
-            <li>第一章&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>天神下凡一锤五</em><button id="btn_alter">修改</button><button
-                    id="btn_del">删除</button></li>
+            
 
         </ul>
         <p class="comment_txt">评论信息</p>
         <div class="comment_box" id="comment_box">
             <div class="comment">
                 <div class="comment_img">
-                    <img src="../../../img/2.jpg" alt="">
+                    <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1718395925,3485808025&fm=27&gp=0.jpg" alt="">
                     <span id="comment_name">人间失格</span>
                 </div>
                 <p class="comment_text">
@@ -161,7 +162,7 @@
             </div>
             <div class="comment">
                 <div class="comment_img">
-                    <img src="../../../img/2.jpg" alt="">
+                    <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1718395925,3485808025&fm=27&gp=0.jpg" alt="">
                     <span id="comment_name">人间失格</span>
                 </div>
                 <p class="comment_text">
@@ -170,7 +171,7 @@
             </div>
             <div class="comment">
                 <div class="comment_img">
-                    <img src="../../../img/2.jpg" alt="">
+                    <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1718395925,3485808025&fm=27&gp=0.jpg" alt="">
                     <span id="comment_name">人间失格</span>
                 </div>
                 <p class="comment_text">
@@ -180,15 +181,15 @@
         </div>
     </div>
     <!-- 底部 -->
-    <div class="foot">
-        <p>下载起点小说客户端</p>
-        <p>海量图书，更高品质阅读体验</p>
-        <p>©2002起点网qidian.com</p>
-        <p>粤ICP备13078413号-1</p>
-        <p>增值电信业务经营许可证：粤B2-20130742</p>
-        <p>上海玄霆娱乐信息科技有限公司 版权所有</p>
-        <p>广州市天河区黄埔大道西平云路163号广电平云广场B塔13层自编03单元</p>
-        <p>0571-26883636</p>
+    <div class="" style="width: 100%;padding-bottom: 20px;background-color: #333">
+        <p style="text-align: center;line-height: 20px;color: #a6a6a6;font-size: 12px">下载起点小说客户端</p>
+        <p style="text-align: center;line-height: 20px;color: #a6a6a6;font-size: 12px">海量图书，更高品质阅读体验</p>
+        <p style="text-align: center;line-height: 20px;color: #a6a6a6;font-size: 12px">©2002起点网qidian.com</p>
+        <p style="text-align: center;line-height: 20px;color: #a6a6a6;font-size: 12px">粤ICP备13078413号-1</p>
+        <p style="text-align: center;line-height: 20px;color: #a6a6a6;font-size: 12px">增值电信业务经营许可证：粤B2-20130742</p>
+        <p style="text-align: center;line-height: 20px;color: #a6a6a6;font-size: 12px">上海玄霆娱乐信息科技有限公司 版权所有</p>
+        <p style="text-align: center;line-height: 20px;color: #a6a6a6;font-size: 12px">广州市天河区黄埔大道西平云路163号广电平云广场B塔13层自编03单元</p>
+        <p style="text-align: center;line-height: 20px;color: #a6a6a6;font-size: 12px">0571-26883636</p>
     </div>
 
 </body>
@@ -205,9 +206,9 @@
         console.log(login_data)
         login_l.style.display = 'none';
         chuxian_l.style.display = 'block';
-        photo_l.innerHTML = `< img src=${login_data.img}>`;
-        nickname_l.innerText = `${login_data.names}`;
-        user_l.innerText = `${login_data.user}`
+        // photo_l.innerHTML = `< img src=${login_data.img}>`;
+        // nickname_l.innerText = `${login_data.names}`;
+        // user_l.innerText = `${login_data.user}`
     }
     //展开收缩
     var str = message_txt_intro_z.innerText
@@ -345,8 +346,85 @@
             return {}
         }
     }
-
-
+    //小说封面
+    if(localStorage.book) {
+        var book = JSON.parse(localStorage.book);
+        console.log(book);
+        cover_c.innerHTML=`<img src='${book.img}'>`;
+        nover_c.innerText=`${book.names}`;
+        author_c.innerText=`${book.zuoze}`
+        message_txt_intro_z.innerText=`${book.texts}`
+    }
+    //章节更新
+    content_btn.onclick = function(){
+        var book = JSON.parse(localStorage.book);
+        console.log(book);
+        // alert(123)
+        $.ajax({
+            url:href+'/users/section_c',
+            type:'post',
+            data:{
+                fiction_uid:book.uid,
+                section:name_txt.value,
+                names:name_z.value,
+                texts:$('#editBox').text()
+            },
+            success(data){
+                console.log(data)
+                if(data=='ok'){
+                    alert('更新成功');
+                    ha_c()
+                }else{
+                    alert('章节已存在')
+                }
+            }
+        })
+    }
+    //章节大厅
+    var book = JSON.parse(localStorage.book);
+     console.log(book);
+     ha_c()
+    function ha_c(){
+        $.ajax({
+            url:href+'/users/hall_c',
+            type:'post',
+            data:{
+                fiction_uid:book.uid,
+            },
+            success(data){
+                console.log(data);
+                var str = '';
+                for(var i=0;i<data.length;i++){
+                    str+=`
+                        <li>${data[i].section}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>${data[i].names}</em><button id="btn_alter">修改</button><button
+                        id="btn_del" onclick='del("${data[i].uid}")'>删除</button></li>
+                    `
+                }
+                list.innerHTML=str
+            }
+        })
+    }
+    
+    function del(a){
+        // alert(123);
+        $.ajax({
+            url:href+'/users/del_c',
+            type:'post',
+            data:{
+                uid:a
+            },
+            success(data){
+                console.log(data)
+                if(data == 'ok'){
+                    alert('删除失败')
+                    
+                }else{
+                    alert('删除成功')
+                    location.href='chapter_publishing_page.html'
+                }
+            }
+        })
+    }
 </script>
 
 </html>

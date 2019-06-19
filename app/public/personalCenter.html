@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>个人中心</title>
+	<style>
+		#photo_l img{
+			width: 100%;
+			height: 100%;
+		}
+		#cover_p img{
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="stylesheets/index.css">
+	<script type="text/javascript" src="jquery.js"></script>
+</head>
+<body>
+	<!-- 头部 -->
+	<div class="hearder_z clearfix">
+		<div class="img_z fl">
+			<a href="index.html"><img src="image/logo.beebc.png" alt=""></a>
+		</div>
+		<ul class="list_z fr" id="chuxian_l" style="display: none">
+			<li><a href="#" class="a_z">&#9763</a></li>
+			<li class="z_z" id="bookrack_l">书架</li>
+			<li class="z_z">个人中心</li>
+			<li class="z_z" id="quit_l">退出登录</li>
+		</ul>
+		<div class="fr" id="login_l">
+			<span class="z_login_in" id="login_in">登录</span> / <span class="z_login_up" id="login_up">注册</span>
+		</div>
+
+	</div>
+	<!-- 中间 -->
+	<div style="min-height: 500px;width: 80%;background-color: red;margin:0 auto;position: relative" class="clearfix">
+		<div style="float: left;width: 30%;background-color: yellow;height:500px">
+			<div style="width: 60%;height: 250px;background-color: blue;margin-left: 20%;margin-right: 20%;margin-top: 10px;" id="photo_l">
+				
+			</div>
+			<div style="width: 60%;height: 40px;background-color: blue;margin-left: 20%;margin-right: 20%;margin-top: 20px;line-height: 40px;">
+				昵称：<span id="nickname_l"></span>
+			</div>
+			<div style="width: 60%;height: 40px;background-color: blue;margin-left: 20%;margin-right: 20%;margin-top: 20px;line-height: 40px;">
+				账号：<span id="user_l"></span>
+			</div>
+			<div style="width: 60%;height: 50px;background-color: blue;margin-left: 20%;margin-right: 20%;margin-top: 20px;line-height: 30px;">
+				<button style="width: 100%;height: 100%" id="write_l">写小说</button>
+			</div>
+		</div>
+		<div style="float: right;width: 70%;background-color: pink;height: 500px;"id="foyer_l" class="clearfix">
+		<!-- 	<div style="width: 20%;height: 335px;background-color: red;margin-left: 2%;margin-right: 2%;float: left;margin-top: 5px;margin-bottom: 5px;" class="l_print"> -->
+				<!-- 封面 -->
+				<!-- <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1718395925,3485808025&fm=27&gp=0.jpg" alt=""> -->
+				<!-- 书名 -->
+				<!-- <p style="width: 80%;margin-left: 10%;margin-right: 10%;text-align: center;line-height: 30px;">《<span>xx</span>》</p> -->
+			<!-- 	发布
+				<div style="width: 80%;margin-left: 10%;margin-right: 10%;text-align: center;line-height: 30px;height: 40px;margin-top: 5px;">
+					<button style="width: 100%;height: 100%">发布</button>
+				</div>
+				删除
+				<div style="width: 80%;margin-left: 10%;margin-right: 10%;text-align: center;line-height: 30px;height: 40px;margin-top: 5px;">
+					<button style="width: 100%;height: 100%">删除</button>
+				</div>
+			</div> -->
+		</div>
+		<div style="position: absolute;width: 70%;height: 500px;background-color: cyan;left: 30%;top:-600px;background:rgba(8,242,247,.5);transition: 
+		.5s"id="modul_l">
+			<div style="width: 20%;background-color: red;margin-left: 40%;margin-right: 40%;height: 160px" id="cover_p">
+				
+			</div>
+			<div style="width: 40%;background-color:cyan;margin-left: 30%;margin-right: 40%;height: 50px;line-height: 50px;margin-top: 5px;">
+				<input type="file" accept="image/*" id="cover_l">
+			</div>
+			<div style="width: 40%;background-color:cyan;margin-left: 30%;margin-right: 40%;height: 50px;line-height: 50px;margin-top: 5px;">
+				小说名字：<input type="text" style="height: 80%;width: 70%" id="names_p">
+			</div>
+			<div style="width: 40%;background-color:red;margin-left: 30%;margin-right: 40%;height: 170px;line-height: 50px;margin-top: 5px;">
+				简介：
+				<!-- <textarea name="文本域名称”value="文本域默认值"  rows='3' cols='40' style="width: 340px;height: 120px;resize:none" i">
+   				 </textarea> -->
+   				 <div contenteditable="true" style="border:1px solid #ccc;height: 120px;"id="text_p">
+   				 	
+   				 </div>
+
+			</div>
+			<div style="width: 20%;background-color:cyan;margin-left: 30%;margin-right: 40%;height: 50px;line-height: 50px;margin-top: 5px;">
+				<button style="width: 100%;height: 100%" id="typein_l">录入</button>
+			</div>
+		</div>
+	</div>
+	<!-- 底部 -->
+	<div style="min-height: 30px;">
+		<p style="text-align: center;line-height: 30px;background-color: pink">
+			下载书旗小说客户端
+		</p>
+		<p style="text-align: center;line-height: 30px">
+			海量图书，更高品质阅读体验
+		</p>
+		<p style="text-align: center;line-height: 30px">
+			©2016书旗网shuqi.com
+		</p>
+		<p style="text-align: center;line-height: 30px">
+			粤ICP备13078413号-1
+		</p>
+		<p style="text-align: center;line-height: 30px">
+			增值电信业务经营许可证：粤B2-20130742
+		</p>
+		<p style="text-align: center;line-height: 30px">
+			广州阿里巴巴文学信息技术有限公司 版权所有
+		</p>
+		<p style="text-align: center;line-height: 30px">
+			广州市天河区黄埔大道西平云路163号广电平云广场B塔13层自编03单元
+		</p>
+		<p style="text-align: center;line-height: 30px">
+			0571-26883636
+		</p>
+	</div>
+</body>
+<script type="text/javascript">
+	var href = 'http://localhost:8000';
+	$('.a_z').parent().siblings('li').hide();
+		$('.a_z').click(function(){
+		$(this).parent().siblings('li').toggle(100);
+	})
+	//登录后的
+	if(localStorage.login){
+		var login_data = JSON.parse(localStorage.login);
+        console.log(login_data)
+        login_l.style.display='none';
+        chuxian_l.style.display='block';
+        photo_l.innerHTML=`<img src=${login_data.img}>`;
+        nickname_l.innerText = `${login_data.names}`;
+        user_l.innerText = `${login_data.user}`
+	}
+	//创建小说
+	write_l.onclick = function(){
+		modul_l.style.top=0;
+
+	}
+	//封面
+	var imgurl=''
+	cover_l.onchange = function(){
+		var f = cover_l.files[0];
+		var d = new FormData;
+		d.append('img',f);
+		$.ajax({
+			url:href+'/files/img',
+			type:'post',
+			data:d,
+			processData:false,
+			contentType:false,
+			success(data){
+				console.log(data);
+				imgurl=href+data;
+				cover_p.innerHTML = `<img src='${href}${data}'>`;
+			}
+		})
+	}
+	//创建小说完成
+	typein_l.onclick =function(){
+		// alert(123)
+		$.ajax({
+			url:href+'/users/novel',
+			type:'post',
+			data:{
+				img:imgurl,
+				names:names_p.value,
+				texts:$('#text_p').text(),
+				loginuid:login_data.uid
+			},
+			success(data){
+				console.log(data)
+				if(data == 'ok'){
+					alert('创建小说完成');
+					modul_l.style.top=-600+'px';
+					hall();
+				}else{
+					alert('小说名字已存在')
+				}
+			}
+		})
+	}
+	//个人中心小说大厅
+	hall()
+	function hall(){
+		$.ajax({
+		url:href+'/users/hall_l',
+		type:'post',
+		data:{
+			loginuid:login_data.uid
+		},
+		success(data){
+			console.log(data)
+			var str = '';
+			for(var i=0;i<data.length;i++){
+				str+=`
+					<div style="width: 20%;height: 335px;background-color: red;margin-left: 2%;margin-right: 2%;float: left;margin-top: 5px;margin-bottom: 5px;" class="l_print">
+				<!-- 封面 -->
+				<img src="${data[i].img}" alt="">
+				<!-- 书名 -->
+				<p style="width: 80%;margin-left: 10%;margin-right: 10%;text-align: center;line-height: 30px;">《<span>${data[i].names}</span>》</p>
+				<!-- 发布 -->
+				<div style="width: 80%;margin-left: 10%;margin-right: 10%;text-align: center;line-height: 30px;height: 40px;margin-top: 5px;">
+					<button style="width: 100%;height: 100%" onclick =' issue_l("${data[i].img}","${data[i].names}","${login_data.names}","${data[i].texts}","${data[i].uid}")'>发布</button>
+				</div>
+				<!-- 删除 -->
+				<div style="width: 80%;margin-left: 10%;margin-right: 10%;text-align: center;line-height: 30px;height: 40px;margin-top: 5px;">
+					<button style="width: 100%;height: 100%" onclick='delete_l("${data[i].uid}")'>删除</button>
+				</div>
+			</div>
+				`
+			}
+			foyer_l.innerHTML=str
+		}
+	})
+	}
+	//删除
+	function delete_l(a){
+		console.log(a)
+		// alert(123)
+		$.ajax({
+			url:href+'/users/delete_l',
+			type:'post',
+			data:{
+				uid:a
+			},
+			success(data){
+				console.log(data)
+				location.href='personalCenter.html'
+			}
+		})
+	}
+
+	//发布
+	function issue_l(a,b,c,d,e){
+		var json={
+			img:a,
+			names:b,
+			zuoze:c,
+			texts:d,
+			uid:e
+		}
+		localStorage.book = JSON.stringify(json)
+
+		// alert(123)
+		location.href = 'chapter_publishing_page.html'
+	}
+</script>
+</html>

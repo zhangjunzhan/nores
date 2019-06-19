@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>阅读页面</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+	
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="stylesheets/index.css">
+	<script src="jquery.js"></script>
+</head>
+<body>
+	<!-- 头部 -->
+	<div class="hearder_z clearfix">
+		<div class="img_z fl">
+			<a href="index.html"><img src="image/logo.beebc.png" alt=""></a>
+		</div>
+		<ul class="list_z fr">
+			<li><a href="#" class="a_z">&#9763</a></li>
+			<li class="z_z">书架</li>
+			<li class="z_z">个人中心</li>
+			<li class="z_z">退出登录</li>
+		</ul>
+		<div class="fr">
+			<span class="z_login_in" id="login_in">登录</span> / <span class="z_login_up" id="login_up">注册</span>
+		</div>
+	</div>
+	<div style="min-height: 500px;background-color: red;width: 80%;margin: 0 auto">
+		
+	</div>
+	<!-- 底部 -->
+	<div style="min-height: 30px;">
+		<p style="text-align: center;line-height: 30px;background-color: pink">
+			下载书旗小说客户端
+		</p>
+		<p style="text-align: center;line-height: 30px">
+			海量图书，更高品质阅读体验
+		</p>
+		<p style="text-align: center;line-height: 30px">
+			©2016书旗网shuqi.com
+		</p>
+		<p style="text-align: center;line-height: 30px">
+			粤ICP备13078413号-1
+		</p>
+		<p style="text-align: center;line-height: 30px">
+			增值电信业务经营许可证：粤B2-20130742
+		</p>
+		<p style="text-align: center;line-height: 30px">
+			广州阿里巴巴文学信息技术有限公司 版权所有
+		</p>
+		<p style="text-align: center;line-height: 30px">
+			广州市天河区黄埔大道西平云路163号广电平云广场B塔13层自编03单元
+		</p>
+		<p style="text-align: center;line-height: 30px">
+			0571-26883636
+		</p>
+	</div>
+</body>
+<script>
+		$('.a_z').parent().siblings('li').hide();
+		$('.a_z').click(function(){
+			$(this).parent().siblings('li').toggle(100);
+		})
+		//注册
+		login_up.onclick = function(){
+			// alert(123)
+			location.href='login.html'
+		} 
+	</script>
+</html>

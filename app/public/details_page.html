@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>详情页面</title>
+    <link rel="stylesheet" href="stylesheets/details_page.css">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="jquery.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="hearder_z clearfix">
+        <div class="img_z fl">
+            <a href="index.html"><img src="image/logo.beebc.png" alt=""></a>
+        </div>
+        <ul class="list_z fr">
+            <li><a href="#" class="a_z" id="chuxian_l">&#9763</a></li>
+            <li class="z_z">书架</li>
+            <li class="z_z" id="personal_center_btn">个人中心</li>
+            <li class="z_z">退出登录</li>
+        </ul>
+        <div class="fr" style="padding-right:30px;" id="login_l">
+            <span class="z_login_in" id="login_in">登录</span> / <span class="z_login_up" id="login_up">注册</span>
+        </div>
+    </div>
+    <!-- 发布页面信息 -->
+    <div class="container_z">
+        <!-- message -->
+        <div class="message_z clearfix">
+            <!-- 图片 -->
+            <div class="message_img_z fl" id="print_d">
+                <!-- <img src="../../../img/1.jpg" alt=""> -->
+            </div>
+            <!-- 信息 -->
+            <div class="message_txt_z fl">
+                <h3 class="message_txt_name_z">《<span id="name_d"></span>》</h3>
+                <div>作者: <a href="#" class="message_txt_author_z" id="author_d"></a></div>
+                简介:
+                <div>
+                    <p class="message_txt_intro_z" id="message_txt_intro_z">
+                       
+                    </p><a href="javascript:;" id="gd">展开</a>
+                </div>
+            </div>
+            <!-- 续更按钮 -->
+            <button class="btn_z" id="btn_z">加入书架</button>
+        </div>
+        <!-- 章节 -->
+        <ul id="list">
+            <!-- <li>第一章&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>天神下凡一锤五</em></li>
+            <li>第一章&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>天神下凡一锤五</em></li>
+            <li>第一章&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>天神下凡一锤五</em></li>
+            <li>第一章&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>天神下凡一锤五</em></li>
+            <li>第一章&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>天神下凡一锤五</em></li>
+            <li>第一章&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>天神下凡一锤五</em></li>
+            <li>第一章&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>天神下凡一锤五</em></li>
+            <li>第一章&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>天神下凡一锤五</em></li>
+            <li>第一章&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>天神下凡一锤五</em></li>
+            <li>第一章&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>天神下凡一锤五</em></li> -->
+        </ul>
+        <p class="comment_txt">
+            评论信息
+            <button class="add_comment" id="add_comment">添加评论</button>
+        </p>
+        <div class="comment_box" id="comment_box">
+            <div class="comment">
+                <div class="comment_img">
+                    <!-- <img src="../../../img/2.jpg" alt=""> -->
+                    <span id="comment_name">人间失格</span>
+                </div>
+                <p class="comment_text">
+                    我是你爸爸,我是你爸爸,我是你爸爸
+                </p>
+            </div>
+            <div class="comment">
+                <div class="comment_img">
+                    <!-- <img src="../../../img/2.jpg" alt=""> -->
+                    <span id="comment_name">人间失格</span>
+                </div>
+                <p class="comment_text">
+                    我是你爸爸,我是你爸爸,我是你爸爸
+                </p>
+            </div>
+            <div class="comment">
+                <div class="comment_img">
+                    <!-- <img src="../../../img/2.jpg" alt=""> -->
+                    <span id="comment_name">人间失格</span>
+                </div>
+                <p class="comment_text">
+                    我是你爸爸,我是你爸爸,我是你爸爸
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- 底部 -->
+    <div class="foot">
+        <p>下载起点小说客户端</p>
+        <p>海量图书，更高品质阅读体验</p>
+        <p>©2002起点网qidian.com</p>
+        <p>粤ICP备13078413号-1</p>
+        <p>增值电信业务经营许可证：粤B2-20130742</p>
+        <p>上海玄霆娱乐信息科技有限公司 版权所有</p>
+        <p>广州市天河区黄埔大道西平云路163号广电平云广场B塔13层自编03单元</p>
+        <p>0571-26883636</p>
+    </div>
+
+</body>
+<script>
+    //跳转列表
+    $('.a_z').parent().siblings('li').hide();
+    $('.a_z').click(function () {
+        $(this).parent().siblings('li').toggle(50);
+    })
+    //展开收缩
+    var str = message_txt_intro_z.innerText
+    // console.log(str)
+    message_txt_intro_z.innerText = str.substring(0, 50);
+    var show = true
+    gd.onclick = function () {
+        show = !show //假真 真假
+        message_txt_intro_z.innerHTML = show ? str.substring(0, 50) : str;
+        this.innerHTML = show ? '展开' : '收缩';
+    }
+
+    var href = 'http://localhost:8000';
+    if(localStorage.login){
+        var login_data = JSON.parse(localStorage.login);
+        // console.log(login_data)
+        login_l.style.display='none';
+        chuxian_l.style.display='block';
+    
+    }
+    if(localStorage.books){
+        var books = JSON.parse(localStorage.books);
+        // console.log(books)
+        var login_data = JSON.parse(localStorage.login);
+        // console.log(login_data)
+        print_d.innerHTML=`<img src=${books.img}>`;
+        name_d.innerText=`${books.names}`
+        author_d.innerText = `${login_data.names}`
+        message_txt_intro_z.innerText=`${books.texts}`
+    }
+    //章节列表
+    var books = JSON.parse(localStorage.books);
+    console.log(books)
+    $.ajax({
+        url:href+'/users/Chapter_lists',
+        type:'post',
+        data:{
+            fiction_uid:books.uid
+        },
+        success(data){
+            console.log(data);
+            var str = '';
+            for(var i=0;i<data.length;i++){
+                str+=`<li>${data[i].section}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>${data[i].names}</em></li>`
+            }
+            list.innerHTML=str
+        }
+    })
+    var login_data = JSON.parse(localStorage.login);
+        console.log(login_data)
+    //加入书架
+    btn_z.onclick = function(){
+        // alert(123)
+        $.ajax({
+            url:href+'/users/bookrack_d',
+            type:'post',
+            data:{
+                img:books.img,
+                names:books.names,
+                author:login_data.names,
+                texts:books.texts,
+                user:login_data.user
+            },
+            success(data){
+                console.log(data);
+                if(data=='ok'){
+                    alert('加入成功')
+                }else{
+                    alert('该书已在书架等您')
+                }
+            }
+        })
+    }
+</script>
+
+</html>

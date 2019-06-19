@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>阅读页面</title>
+    <link rel="stylesheet" href="stylesheets/read_the_page.css">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="jquery.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- 头 -->
+    <div class="hearder_z clearfix">
+        <div class="img_z fl">
+            <a href="index.html"><img src="image/logo.beebc.png" alt=""></a>
+        </div>
+        <ul class="list_z fr">
+            <li><a href="#" class="a_z">&#9763</a></li>
+            <li class="z_z">书架</li>
+            <li class="z_z" id="personal_center_btn">个人中心</li>
+            <li class="z_z">退出登录</li>
+        </ul>
+        <div class="fr" style="padding-right:30px;">
+            <span class="z_login_in" id="login_in">登录</span> / <span class="z_login_up" id="login_up">注册</span>
+        </div>
+    </div>
+    <!-- 内容 -->
+    <div class="content">
+        <div class="title">第一章&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>我是你爸爸</span></div>
+        <!-- 上切换 -->
+        <ul class="cut_up">
+                <li><a href="javascript:;">上一章</a></li>
+                <li><a href="javascript:;">目录</a></li>
+                <li><a href="javascript:;">下一章</a></li>
+        </ul>
+        <p>
+            约五六秒钟的沉默之后，这才继续说道：“小苍啊，你别怪阿姨心狠，阿姨知道你是好孩子，
+            对慧慧也是真心实意的，但是在魔都这个地方，你们俩都是外地人，想在这里扎下根不容易！
+            不说别的，就现在这魔都的房价你说就凭你们两人的工资什么时候才能有个窝？
+            退一步讲，哪怕你有个四五十平的房子，阿姨和你叔叔都不会阻止你们俩在一块，但是现在无论你和和慧慧都没有这条件，
+            你现在是孤身一人家里也没人，帮不上什么忙，我和你叔也是县城里的小公务员，
+            就算是拿出了老本，也不过就是二三十万，想在魔都这里给你们别说买一套房了，
+            连个首付都不够的啊，现在这里哪里还有四五百万的房子啊……”。
+        </p>
+        <p>
+            约五六秒钟的沉默之后，这才继续说道：“小苍啊，你别怪阿姨心狠，阿姨知道你是好孩子，
+            对慧慧也是真心实意的，但是在魔都这个地方，你们俩都是外地人，想在这里扎下根不容易！
+            不说别的，就现在这魔都的房价你说就凭你们两人的工资什么时候才能有个窝？
+            退一步讲，哪怕你有个四五十平的房子，阿姨和你叔叔都不会阻止你们俩在一块，但是现在无论你和和慧慧都没有这条件，
+            你现在是孤身一人家里也没人，帮不上什么忙，我和你叔也是县城里的小公务员，
+            就算是拿出了老本，也不过就是二三十万，想在魔都这里给你们别说买一套房了，
+            连个首付都不够的啊，现在这里哪里还有四五百万的房子啊……”。
+        </p>
+        
+    </div>
+    <!-- 下切换 -->
+    <ul class="cut_down">
+        <li><a href="javascript:;">上一章</a></li>
+        <li><a href="javascript:;">目录</a></li>
+        <li><a href="javascript:;">下一章</a></li>
+    </ul>
+    <!-- 底部 -->
+    <div class="foot">
+        <p>上海玄霆娱乐信息科技有限公司 版权所有</p>
+        <p>增值电信业务经营许可证：粤B2-20130742</p>
+        <p>广州市天河区黄埔大道西平云路163号广电平云广场B塔13层自编03单元</p>
+    </div>
+</body>
+    <script>
+        //跳转列表
+        $('.a_z').parent().siblings('li').hide();
+        $('.a_z').click(function () {
+            $(this).parent().siblings('li').toggle(50);
+        })
+    </script>
+</html>

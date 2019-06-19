@@ -10,6 +10,7 @@ router.use(multer({dest:'./public/file'}).any())
 router.post('/img',(req,res)=>{
 	var f = req.files[0]
 	console.log(f)
+	// res.send('ok')
     var oldname = f.filename
     var newname= oldname+path.parse(f.originalname).ext
     fs.renameSync('./public/file/'+oldname,'./public/file/'+newname)
