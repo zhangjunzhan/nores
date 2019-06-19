@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>首页</title>
+	<link rel="stylesheet" href="stylesheets/index.css">
+	<script src="jquery.js"></script>
+</head>
+<body>
+	<div class="hearder_z clearfix">
+		<div class="img_z fl">
+			<a href="index.html"><img src="image/logo.beebc.png" alt=""></a>
+		</div>
+		<ul class="list_z fr">
+			<li><a href="#" class="a_z">&#9763</a></li>
+			<li class="z_z">书架</li>
+			<li class="z_z" id="personal_center_btn">个人中心</li>
+			<li class="z_z">退出登录</li>
+		</ul>
+		<div class="fr" style="padding-right:30px;">
+			<span class="z_login_in" id="login_in">登录</span> / <span class="z_login_up" id="login_up">注册</span>
+		</div>
+	</div>
+	<!-- 中间搜索 -->
+	<div class="l_search">
+		<!-- 搜索框 -->
+		<div class="l_box">
+			<div>
+				<input type="text" class="search_txt" placeholder="不正经の搜索" id="search_txt"><button class="search_l" id="search_l">搜索</button>
+			</div>
+			<div style="padding-left: 7%;margin-top: 10px;" class="l_recommend">
+				<span>aa</span>
+				<span>bb</span>
+				<span>cc</span>
+				<span>dd</span>
+				<span>ee</span>
+			</div>
+		</div>
+		<div class="l_box clearfix" style="margin-top: 10px;">
+			<!-- 一本推荐 -->
+			<div class="l_print">
+				<!-- 封面 -->
+				<img src="../../../../../04_老曾带的第4个月/11.29轮播图/1.png" alt="">
+				<!-- 书名 -->
+				<p class="txt_name">《<span>xx</span>》</p>
+				<!-- 作者 -->
+				<p class="txt_author"><span>作者</span></p>
+			</div>
+		</div>
+	</div>
+	<!-- 底部 -->
+	<div class="foot">
+		<p>下载书旗小说客户端</p>
+		<p>海量图书，更高品质阅读体验</p>
+		<p >©2002起点网qidian.com</p>
+		<p>粤ICP备13078413号-1</p>
+		<p>增值电信业务经营许可证：粤B2-20130742</p>
+		<p>上海玄霆娱乐信息科技有限公司 版权所有</p>
+		<p>广州市天河区黄埔大道西平云路163号广电平云广场B塔13层自编03单元</p>
+		<p>0571-26883636</p>
+	</div>
+</body>
+	<script>
+		//跳转列表
+		$('.a_z').parent().siblings('li').hide();
+		$('.a_z').click(function(){
+			$(this).parent().siblings('li').toggle(50);
+		})
+		//跳转到个人中心
+		$('#personal_center_btn').click(function(){
+			location.href='personal_center.html'
+		})
+		//注册
+		login_up.onclick = function(){
+			location.href='login.html'
+		}
+	</script>
+</html>
