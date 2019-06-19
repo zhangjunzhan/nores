@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>章节发布页面</title>
+    <link rel="stylesheet" href="stylesheets/chapter_publishing_page.css">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="jquery.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="hearder_z clearfix">
+        <div class="img_z fl">
+            <a href=" ">
+                <img src="image/logo.beebc.png" alt=""></a>
+        </div>
+        <ul class="list_z fr" id="chuxian_l" style="display: none">
+            <li>
+                <a href="#" class="a_z">&#9763</a>
+            </li>
+            <li class="z_z" id="bookrack_l">书架</li>
+            <li class="z_z">个人中心</li>
+            <li class="z_z" id="quit_l">退出登录</li>
+        </ul>
+        <div class="fr" id="login_l">
+            <span class="z_login_in" id="login_in">登录</span> / <span class="z_login_up" id="login_up">注册</span>
+        </div>
+
+    </div>
+    <!-- 发布页面信息 -->
+    <div class="container_z">
+        <!-- message -->
+        <div class="message_z clearfix">
+            <!-- 图片 -->
+            <div class="message_img_z fl">
+                <img src="../../../img/1.jpg" alt="">
+            </div>
+            <!-- 信息 -->
+            <div class="message_txt_z fl">
+                <h3 class="message_txt_name_z">小说名字</h3>
+                <div>作者: <a href="#" class="message_txt_author_z"> 人间失格</a></div>
+                简介:
+                <div>
+                    <p class="message_txt_intro_z" id="message_txt_intro_z">
+                        大灾变百年，一个全新的职业诞生，他们掌控铁，铜，磷，金，硅，碳……高能看着自己的隐藏天赋，惊呆了：铁100%，铜100%，锡100%，银100%，金100%，磷100%，硫100%，硅100%……
+                    </p><a href="javascript:;" id="gd">展开</a>
+                </div>
+            </div>
+            <!-- 续更按钮 -->
+            <button class="btn_z" data-toggle="modal" data-target="#myModal" id="btn_z">章节更新</button>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">更新</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="name-txt">章节</label>
+                                <input type="text" class="form-control" id="name-txt" placeholder="章节">
+                            </div>
+                            <div class="form-group">
+                                <label for="name-z">章节名字</label>
+                                <input type="text" class="form-control" id="name-z" placeholder="章节名字">
+                            </div>
+                            <!-- 富文本 -->
+                            <div class='content' id="content">
+                                <header class='header'>
+                                    <select id='fontSize' defaultValue='3' class='font-size-box'>
+                                        <option value="3">3号字</option>
+                                        <option value="1">1号字</option>
+                                        <option value="2">2号字</option>
+                                        <option value="4">4号字</option>
+                                        <option value="5">5号字</option>
+                                        <option value="6">6号字</option>
+                                        <option value="7">7号字</option>
+                                    </select>
+                                    <span>字体颜色:</span>
+                                    <input type="color" class="input-box" id='fontColor' />
+                                    <span>字体背景色:</span>
+                                    <input type="Color" class="input-box" id='bgColor' />
+                                    <div class="img-box">
+                                        <input type="image" src="./img/格式刷.png" class="input-img"
+                                            onclick='textChange("removeFormat")' />
+                                        <input type="image" src="./img/left.png" class="input-img"
+                                            onclick='textChange("justifyLeft")' />
+                                        <input type="image" src="./img/justify.png" class="input-img"
+                                            onclick='textChange("justifyFull")' />
+                                        <input type="image" src="./img/center.png" class="input-img"
+                                            onclick='textChange("justifyCenter")' />
+                                        <input type="image" src="./img/right.png" class="input-img"
+                                            onclick='textChange("justifyRight")' />
+                                        <input type="image" src="./img/B.png" class="input-img"
+                                            onclick='textChange("bold")' />
+                                        <input type="image" src="./img/I.png" class="input-img"
+                                            onclick='textChange("italic")' />
+                                        <input type="image" src="./img/删除线.png" class="input-img"
+                                            onclick='textChange("strikeThrough")' />
+                                        <input type="image" src="./img/下划线.png" class="input-img"
+                                            onclick='textChange("underline")' />
+                                        <input type="image" src="./img/重做.png" class="input-img"
+                                            onclick='textChange("redo")' />
+                                        <input type="image" src="./img/撤销.png" class="input-img"
+                                            onclick='textChange("undo")' />
+                                    </div>
+                                    <div class="ry-upload">
+                                        <p class="btn-inner">
+                                            +
+                                        </p>
+                                        <input type="file" id='file' accept="image/*" class="btn-file" />
+                                    </div>
+                                    <div class="ry-upload">
+                                        <p class="btn-inner">
+                                            <img src='./img/timg.jpeg' height="20px" />
+                                        </p>
+                                        <input type="file" class="btn-file" accept="video/*" id='video' />
+                                    </div>
+                                </header>
+                                <div contenteditable="true" class='editBox' id='editBox'>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" id="content_btn">更新</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 富文本 -->
+        </div>
+        <!-- 章节 -->
+        <ul id="list">
+            <li>第一章&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>天神下凡一锤五</em><button id="btn_alter">修改</button><button
+                    id="btn_del">删除</button></li>
+
+        </ul>
+        <p class="comment_txt">评论信息</p>
+        <div class="comment_box" id="comment_box">
+            <div class="comment">
+                <div class="comment_img">
+                    <img src="../../../img/2.jpg" alt="">
+                    <span id="comment_name">人间失格</span>
+                </div>
+                <p class="comment_text">
+                    我是你爸爸,我是你爸爸,我是你爸爸
+                </p>
+            </div>
+            <div class="comment">
+                <div class="comment_img">
+                    <img src="../../../img/2.jpg" alt="">
+                    <span id="comment_name">人间失格</span>
+                </div>
+                <p class="comment_text">
+                    我是你爸爸,我是你爸爸,我是你爸爸
+                </p>
+            </div>
+            <div class="comment">
+                <div class="comment_img">
+                    <img src="../../../img/2.jpg" alt="">
+                    <span id="comment_name">人间失格</span>
+                </div>
+                <p class="comment_text">
+                    我是你爸爸,我是你爸爸,我是你爸爸
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- 底部 -->
+    <div class="foot">
+        <p>下载起点小说客户端</p>
+        <p>海量图书，更高品质阅读体验</p>
+        <p>©2002起点网qidian.com</p>
+        <p>粤ICP备13078413号-1</p>
+        <p>增值电信业务经营许可证：粤B2-20130742</p>
+        <p>上海玄霆娱乐信息科技有限公司 版权所有</p>
+        <p>广州市天河区黄埔大道西平云路163号广电平云广场B塔13层自编03单元</p>
+        <p>0571-26883636</p>
+    </div>
+
+</body>
+<script>
+    //返回首页
+    var href = 'http://localhost:8000';
+    $('.a_z').parent().siblings('li').hide();
+    $('.a_z').click(function () {
+        $(this).parent().siblings('li').toggle(100);
+    })
+    //登录后的
+    if (localStorage.login) {
+        var login_data = JSON.parse(localStorage.login);
+        console.log(login_data)
+        login_l.style.display = 'none';
+        chuxian_l.style.display = 'block';
+        photo_l.innerHTML = `< img src=${login_data.img}>`;
+        nickname_l.innerText = `${login_data.names}`;
+        user_l.innerText = `${login_data.user}`
+    }
+    //展开收缩
+    var str = message_txt_intro_z.innerText
+    console.log(str)
+    message_txt_intro_z.innerText = str.substring(0, 50);
+    var show = true
+    gd.onclick = function () {
+        show = !show //假真 真假
+        message_txt_intro_z.innerHTML = show ? str.substring(0, 50) : str;
+        this.innerHTML = show ? '展开' : '收缩';
+    }
+    //富文本
+    $(function () {
+        $(document).keydown(function (event) {
+            let key = event.keyCode
+            if (key === 37 || key === 38 || key === 39 || key === 40) {
+                changePositon(event)
+            }
+        })
+        $('#editBox').on('click', function (e) {
+            changePositon(e)
+        })
+        $('#fontColor').on('input', function (e) {
+            textChange('foreColor', e.target.value)
+        })
+        $('#bgColor').on('input', function (e) {
+            textChange('hiliteColor', e.target.value)
+        })
+        $('#fontSize').on('input', function (e) {
+            textChange('fontSize', e.target.value)
+        })
+        $('#file').on('input', function (e) {
+            e.preventDefault()
+            const files = e.target.files[0]
+            if (files) {
+                image2base64(files, (data) => {
+                    var pic = `<img src="data:image/jpeg;base64${data}" />`
+                    textChange('insertHTML', pic)
+                })
+            }
+        })
+        $('#video').on('input', function (e) {
+            e.preventDefault()
+            const files = e.target.files[0]
+            if (files) {
+                getvideo(files, (data) => {
+                    var pic = `<video src=${data} controls="controls">`
+                    textChange('insertHTML', pic)
+                })
+            }
+        })
+    });
+    function textChange(a, b) {
+        var isFocus = $("#editBox").is(":focus");
+        isFocus ? null : $('#editBox').focus();
+        b ?
+            document.execCommand(a, false, b)
+            :
+            document.execCommand(a, true, null)
+    }
+    function image2base64(file, cb) {
+        const reader = new FileReader()
+        reader.onloadend = function () {
+            cb && cb(this.result)
+        }
+        reader.readAsDataURL(file)
+    }
+    function getvideo(file, cb) {
+        // 建议判断下视频大小及格式，太大的可能会有问题
+        const reader = new FileReader();
+        reader.onload = function (evt) {
+            cb && cb(evt.target.result)
+        }
+        reader.readAsDataURL(file);
+    }
+    //改变光标位置
+    function changePositon(e) {
+        var range = document.getSelection()
+        if (range && range.focusNode.data) {
+            let t = range.focusNode.data
+            let p = range.focusNode.parentElement
+            let size = p.size
+            let color = p.color
+            let bgColor = p.style.backgroundColor
+            if (!color) {
+                color = getColor(p)
+            }
+            if (!size) {
+                size = getSize(p)
+            }
+            if (!bgColor) {
+                bgColor = getBgColor(p)
+            }
+            $('#fontSize').val(size || 3)
+            $('#fontColor').val(color || '#000000')
+            $('#bgColor').val(bgColor || '#000000')
+        }
+    }
+    function getBgColor(p) {
+        let c
+        if (p.parentElement) {
+            c = p.parentElement.style.backgroundColor
+            if (c) {
+                return c
+            } else {
+                getColor(p.parentElement)
+            }
+        } else {
+            return {}
+        }
+    }
+    function getColor(p) {
+        let c
+        if (p.parentElement) {
+            c = p.parentElement.color
+            if (c) {
+                return c
+            } else {
+                getColor(p.parentElement)
+            }
+        } else {
+            return {}
+        }
+    }
+    function getSize(p) {
+        let s
+        if (p.parentElement) {
+            s = p.parentElement.size
+            if (s) {
+                return s
+            } else {
+                getSize(p.parentElement)
+            }
+        } else {
+            return {}
+        }
+    }
+
+
+</script>
+
+</html>
