@@ -5,6 +5,7 @@
 	<title>书架</title>
 	<link rel="stylesheet" type="text/css" href="stylesheets/index.css">
 	<script type="text/javascript" src="jquery.js"></script>
+	<!-- <script type="text/javascript" src="jquery.js"></script> -->
 </head>
 <body>
 	<!-- 头部 -->
@@ -25,19 +26,19 @@
 	</div>
 	<!-- 中间 -->
 	<div>
-		<div class="l_box clearfix" style="margin-top: 10px;">
+		<div class="l_box clearfix" style="margin-top: 10px;" id="list_b">
 			<!-- 一本推荐 -->
-			<div style="width: 20%;height: 300px;background-color: pink;margin-left: 2%;margin-right: 2%;float: left;margin-top: 5px;margin-bottom: 5px;" class="l_print">
+			<!-- <div style="width: 20%;height: 300px;background-color: pink;margin-left: 2%;margin-right: 2%;float: left;margin-top: 5px;margin-bottom: 5px;" class="l_print"> -->
 				<!-- 封面 -->
-				<img src="http://img2.imgtn.bdimg.com/it/u=1210667130,1030867550&fm=26&gp=0.jpg" alt="">
+				<<!-- img src="http://img2.imgtn.bdimg.com/it/u=1210667130,1030867550&fm=26&gp=0.jpg" alt=""> -->
 				<!-- 书名 -->
-				<p style="width: 80%;margin-left: 10%;margin-right: 10%;text-align: center;line-height: 30px;">《<span>xx</span>》</p>
+				<!-- <p style="width: 80%;margin-left: 10%;margin-right: 10%;text-align: center;line-height: 30px;">《<span>xx</span>》</p> -->
 				<!-- 作者 -->
-				<p style="width: 80%;margin-left: 10%;margin-right: 10%;text-align: center;line-height: 30px;"><span>作者</span>
+				<!-- <p style="width: 80%;margin-left: 10%;margin-right: 10%;text-align: center;line-height: 30px;"><span>作者</span>
 				</p>
 				<p style="width: 80%;margin-left: 10%;margin-right: 10%;text-align: center;line-height: 30px;"><span style="border:1px solid #ccc;padding:0 30px;background-color: #ccc">删除</span>
 				</p>
-			</div>
+			</div> -->
 		</div>
 	</div>
 	<!-- 底部 -->
@@ -69,6 +70,7 @@
 	</div>
 </body>
 <script type="text/javascript">
+	var href = 'http://localhost:8000'
 	$('.a_z').parent().siblings('li').hide();
 		$('.a_z').click(function(){
 		$(this).parent().siblings('li').toggle(100);
@@ -79,6 +81,56 @@
         console.log(login_data)
         login_l.style.display='none';
         chuxian_l.style.display='block'
+	}
+	var login_data = JSON.parse(localStorage.login);
+        console.log(login_data)
+	//个人书架
+	$.ajax({
+		url:href+'/users/book_b',
+		type:'post',
+		data:{
+			user:login_data.user
+		},
+		success(data){
+			console.log(data)
+			var str = '';
+			for(var i=0;i<data.length;i++){
+				str+=`
+					<div style="width: 20%;height: 300px;background-color: pink;margin-left: 2%;margin-right: 2%;float: left;margin-top: 5px;margin-bottom: 5px;" class="l_print">
+				<!-- 封面 -->
+				<img src="${data[i].img}" alt="">
+				<!-- 书名 -->
+				<p style="width: 80%;margin-left: 10%;margin-right: 10%;text-align: center;line-height: 30px;">《<span>${data[i].names}</span>》</p>
+				<!-- 作者 -->
+				<p style="width: 80%;margin-left: 10%;margin-right: 10%;text-align: center;line-height: 30px;">作者:<span>${data[i].author}</span>
+				</p>
+				<p style="width: 80%;margin-left: 10%;margin-right: 10%;text-align: center;line-height: 30px;"><span style="border:1px solid #ccc;padding:0 30px;background-color: #ccc" onclick="del_b('${data[i].uid}')">删除</span>
+				</p>
+			</div>
+				`
+			}
+			list_b.innerHTML=str
+		}
+	})
+	//个人书架删除
+	function del_b(a){
+		// alert(123)
+		$.ajax({
+			url:href+'/users/del_b',
+			type:'post',
+			data:{
+				uid:a
+			},
+			success(data){
+				console.log(data);
+				if(data=='ok'){
+					alert('删除成功');
+					location.href='bookrack.html'
+				}else{
+					alert('删除失败')
+				}
+			}
+		})
 	}
 </script>
 </html>

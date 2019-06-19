@@ -151,7 +151,7 @@
         </ul>
         <p class="comment_txt">评论信息</p>
         <div class="comment_box" id="comment_box">
-            <div class="comment">
+           <!--  <div class="comment">
                 <div class="comment_img">
                     <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1718395925,3485808025&fm=27&gp=0.jpg" alt="">
                     <span id="comment_name">人间失格</span>
@@ -177,7 +177,7 @@
                 <p class="comment_text">
                     我是你爸爸,我是你爸爸,我是你爸爸
                 </p>
-            </div>
+            </div> -->
         </div>
     </div>
     <!-- 底部 -->
@@ -425,6 +425,34 @@
             }
         })
     }
+    //章节发布评论
+    var book = JSON.parse(localStorage.book);
+        console.log(book);
+    $.ajax({
+        url:href+'/users/chap_com',
+        type:'post',
+        data:{
+           names:book.names 
+        },
+        success(data){
+            console.log(data);
+            var str = '';
+            for(var i=0;i<data.length;i++){
+                str+=`
+                    <div class="comment">
+                <div class="comment_img">
+                    <img src="${data[i].img}" alt="">
+                    <span id="comment_name">${data[i].zuoze}</span>
+                </div>
+                <p class="comment_text">
+                    ${data[i].texts}
+                </p>
+            </div>
+                `
+            }
+            comment_box.innerHTML=str
+        }
+    })
 </script>
 
 </html>

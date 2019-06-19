@@ -259,4 +259,99 @@ router.post('/bookrack_d',(req,res)=>{
 	})
 	// res.send('ok')
 })
+//个人书架
+router.post('/book_b',(req,res)=>{
+	var json = req.body;
+	console.log(json);
+	pool.conn({
+		arr:[json.user],
+		sql:'select * from bookrack where user=?',
+		success(data){
+			res.send(data)
+		},
+		error(err){
+			res.send(err)
+		}
+	})
+	// res.send('ok')
+})
+//个人书架删除
+router.post('/del_b',(req,res)=>{
+	var json = req.body;
+	console.log(json);
+	pool.conn({
+		arr:[json.uid],
+		sql:'delete from bookrack where uid=?',
+		success(data){
+			res.send('ok')
+		},
+		error(err){
+			res.send(err)
+		}
+	})
+	// res.send('ok')
+})
+//添加评论
+router.post('/comments_l',(req,res)=>{
+	var json = req.body;
+	console.log(json);
+	pool.conn({
+		arr:[json.names,json.img,json.zuoze,json.texts],
+		sql:'insert into comments(names,img,zuoze,texts)values(?,?,?,?)',
+		success(data){
+			res.send('ok')
+		},
+		error(err){
+			res.send(err)
+		}
+	})
+})
+//评论大厅
+router.post('/com_hall',(req,res)=>{
+	var json = req.body;
+	console.log(json);
+	pool.conn({
+		arr:[json.names],
+		sql:'select * from comments where names=?',
+		success(data){
+			res.send(data)
+		},
+		error(err){
+			res.send(err)
+		}
+	})
+	// res.send('ok')
+})
+//章节发布评论
+router.post('/chap_com',(req,res)=>{
+	var json = req.body;
+	console.log(json);
+	pool.conn({
+		arr:[json.names],
+		sql:'select * from comments where names=?',
+		success(data){
+			res.send(data)
+		},
+		error(err){
+			res.send(err)
+		}
+	})
+	// res.send('ok')
+})
+router.post('/read',(req,res)=>{
+	var json = req.body;
+	console.log(json);
+	pool.conn({
+		arr:[json.uid],
+		sql:'select * from section_l where uid=?',
+		success(data){
+			res.send(data)
+		},
+		error(err){
+			res.send(err)
+		}
+	})
+	// res.send('ok')
+})
+
 module.exports = router;

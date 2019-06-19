@@ -32,10 +32,11 @@
         </div>
     </div>
     <!-- 内容 -->
-    <div class="content">
-        <div class="title">第一章&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>我是你爸爸</span></div>
+    <div class="content" id="abcde">
+    
+       <!--  <div class="title">第一章&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>我是你爸爸</span></div> -->
         <!-- 上切换 -->
-        <ul class="cut_up">
+        <!-- <ul class="cut_up">
                 <li><a href="javascript:;">上一章</a></li>
                 <li><a href="javascript:;">目录</a></li>
                 <li><a href="javascript:;">下一章</a></li>
@@ -59,7 +60,7 @@
             连个首付都不够的啊，现在这里哪里还有四五百万的房子啊……”。
         </p>
         
-    </div>
+    </div> -->
     <!-- 下切换 -->
     <ul class="cut_down">
         <li><a href="javascript:;">上一章</a></li>
@@ -78,6 +79,37 @@
         $('.a_z').parent().siblings('li').hide();
         $('.a_z').click(function () {
             $(this).parent().siblings('li').toggle(50);
+        })
+        var href = 'http://localhost:8000';
+        //阅读页面
+        var uid = JSON.parse(localStorage.uid)
+        console.log(uid);
+        $.ajax({
+            url:href+'/users/read',
+            type:'post',
+            data:{
+                uid:uid.uid
+            },
+            success(data){
+                console.log(data)
+                var str=`
+
+        
+        <div class="title">${data[0].section}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>${data[0].names}</span></div>
+        <!-- 上切换 -->
+        <ul class="cut_up">
+                <li><a href="javascript:;">上一章</a></li>
+                <li><a href="javascript:;">目录</a></li>
+                <li><a href="javascript:;">下一章</a></li>
+        </ul>
+       ${data[0].texts}
+        
+    </div>
+
+                `;
+
+                abcde.innerHTML=str
+            }
         })
     </script>
 </html>
