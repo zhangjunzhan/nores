@@ -204,11 +204,11 @@
     window.onload=function(){
         var str = message_txt_intro_z.innerText
         console.log(str)
-        message_txt_intro_z.innerText = str.substring(0, 20);
+        message_txt_intro_z.innerText = str.substring(0, 70);
         var show = true
         gd.onclick = function () {
             show = !show //假真 真假
-            message_txt_intro_z.innerHTML = show ? str.substring(0, 20) : str;
+            message_txt_intro_z.innerHTML = show ? str.substring(0, 70) : str;
             this.innerHTML = show ? '展开' : '收缩';
         }
     }

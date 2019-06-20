@@ -35,7 +35,7 @@ em,i{font-style: normal;}
 .btn_z:hover{cursor: pointer;opacity: .9;}
 /* 章节 */
 #list{min-height: 200px;border-bottom: 1px solid #000;}
-#list li{height: 40px;float: left;width: 33%;text-align: center;padding-top: 20px;}
+#list li{height: 40px;float: left;width: 33%;padding-top: 20px;padding-left: 20px;}
 #list li:hover{color: red;cursor: pointer;transition: .3s}
 /* 评论 */
 .comment_box{padding: 50px;}

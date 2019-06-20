@@ -21,7 +21,7 @@ em,i{font-style: normal;}
 #all_i{height: 800px;}
 .l_recommend span{border:1px solid #ccc;padding:0.2em 1em;border-radius: 15px;color: #888;}
 .l_recommend span:hover{cursor: pointer;color: rgb(127, 230, 219);transition:.5s;}
-.l_print{width: 20%;float: left;text-align: center;padding:10px;}
+.l_print{width: 20%;float: left;text-align: center;padding:10px;box-shadow: 0 0 0 1px;cursor: pointer;}
 .l_print img{width: 150px;height: 200px;}
 .search_l{width: 5%;height: 40px;outline: none;border: none;background: #bf2c24;color:white;}
 .search_l:hover{opacity: .9;cursor: pointer;}

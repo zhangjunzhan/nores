@@ -74,7 +74,7 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="txt">评论</label>
-                                <div contenteditable="true" style="height: 200px;border: 1px solid" id="txt"></div>
+                                <div contenteditable="true" style="min-height: 200px;border: 1px solid" id="txt"></div>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -216,6 +216,7 @@
                 console.log(data)
                 if(data == 'ok'){
                     alert('评论成功')
+                    $('#my').modal('hide')
                     abc()
                 }else{
                     alert('评论失败')

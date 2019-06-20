@@ -15,7 +15,7 @@ em,i{font-style: normal;}
 .hearder_z{padding: 0 10%;}
 /* 小说图片 */
 .container_z{width:80%;margin: 0 auto;background:#fafafa;}
-.message_z{height: 300px;position: relative;border-bottom: 1px solid rgb(46, 34, 34);}
+.message_z{min-height: 300px;position: relative;border-bottom: 1px solid rgb(46, 34, 34);}
 .message_img_z{height: 297px;}
 .message_img_z img{width: 150px;height: 200px;margin-left: 50px;margin-top: 50px;}
 /* 小说 */

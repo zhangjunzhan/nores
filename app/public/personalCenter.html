@@ -20,7 +20,10 @@
 			width: 100%;
 			height: 100%;
 		}
-		button:hover{cursor: pointer;}
+
+		button:hover {
+			cursor: pointer;
+		}
 	</style>
 	<link rel="stylesheet" type="text/css" href="stylesheets/index.css">
 	<script type="text/javascript" src="jquery.js"></script>
@@ -64,12 +67,13 @@
 			</div>
 		</div>
 		<div style="float: right;width: 70%;" id="foyer_l" class="clearfix">
-			
+
 		</div>
 		<!-- 写小说框 -->
 		<div style="position: absolute;width: 70%;left: 30%;top:-700px;transition: 
 		.5s;background: #a9a9a9;" id="modul_l">
-			<div style="width: 150px;height: 200px;margin: 10px auto;text-align: center;line-height: 160px;font-size: 200px;border: 1px solid aliceblue;" id="cover_p">
+			<div style="width: 150px;height: 200px;margin: 10px auto;text-align: center;line-height: 160px;font-size: 200px;border: 1px solid aliceblue;"
+				id="cover_p">
 				+
 			</div>
 			<!-- 文件上传 -->
@@ -83,14 +87,17 @@
 			<!-- 简介 -->
 			<div style="width: 40%;margin-left: 30%;margin-right: 40%;margin-top: 5px;">
 				简介：
-				<div contenteditable="true" style="border:1px solid #ccc;font-size: 14px;outline: none;min-height: 100px;" id="text_p">
+				<div contenteditable="true"
+					style="border:1px solid #ccc;font-size: 14px;outline: none;min-height: 100px;" id="text_p">
 
 				</div>
 			</div>
 			<!-- 录入 -->
 			<div style="padding: 20px;text-align: center;">
 				<button id="typein_l" style="padding:5px 10px;border:none;">录入</button>
+				<button style="padding:5px 10px;border:none;" id="no_btn">取消</button>
 			</div>
+
 		</div>
 		<!-- 写小说 -->
 	</div>
@@ -112,22 +119,22 @@
 		user_l.innerText = `${login_data.user}`
 	}
 	//书架跳转
-	bookrack_l.onclick=function(){
-		location.href='bookrack.html'
+	bookrack_l.onclick = function () {
+		location.href = 'bookrack.html'
 	}
 	//退出登录
-	quit_l.onclick=function(){
+	quit_l.onclick = function () {
 		localStorage.login = ''
-		location.href='index.html'
+		location.href = 'index.html'
 		login_l.style.display = 'block';
 		chuxian_l.style.display = 'none';
 	}
 	// 中心跳转
-	center_z.onclick=function(){
-		location.href='personalCenter.html'
+	center_z.onclick = function () {
+		location.href = 'personalCenter.html'
 	}
-		
-	
+
+
 	//创建小说
 	write_l.onclick = function () {
 		modul_l.style.top = 0;
@@ -154,30 +161,44 @@
 	}
 	//创建小说完成
 	var login_data = JSON.parse(localStorage.login);
-		console.log(login_data)
+	console.log(login_data)
 	typein_l.onclick = function () {
-		// alert(123)
-		$.ajax({
-			url: href + '/users/novel',
-			type: 'post',
-			data: {
-				img: imgurl,
-				names: names_p.value,
-				texts: $('#text_p').text(),
-				loginuid: login_data.uid,
-				zz:login_data.names
-			},
-			success(data) {
-				console.log(data)
-				if (data == 'ok') {
-					alert('创建小说完成');
-					modul_l.style.top = -700 + 'px';
-					hall();
-				} else {
-					alert('小说名字已存在')
+		if (cover_l.value == '') {
+			alert('请选择封面')
+		} else if (names_p.value == '') {
+			alert('请输入小说名字')
+
+		} else {
+			$.ajax({
+				url: href + '/users/novel',
+				type: 'post',
+				data: {
+					img: imgurl,
+					names: names_p.value,
+					texts: $('#text_p').text(),
+					loginuid: login_data.uid,
+					zz: login_data.names
+				},
+				success(data) {
+					console.log(data)
+					if (data == 'ok') {
+						alert('创建小说完成');
+						modul_l.style.top = -700 + 'px';
+						hall();
+						cover_l.value = '';
+						names_p.value = '';
+						text_p.innerText = '';
+					} else {
+						alert('小说名字已存在')
+						names_p.value = '';
+					}
 				}
-			}
-		})
+			})
+		}
+	}
+	//取消创建小说
+	no_btn.onclick = function () {
+		modul_l.style.top = -700 + 'px';
 	}
 	//个人中心小说大厅
 	// if($('#foyer_l').html('')){
@@ -195,7 +216,7 @@
 			},
 			success(data) {
 				console.log(data)
-					var str = '';
+				var str = '';
 				for (var i = 0; i < data.length; i++) {
 					str += `
 			<div class="l_print fl" style="width:30%;border:1px solid #ccc;">
@@ -214,13 +235,13 @@
 			</div>
 				`
 				}
-				if(data == 'ok'){
-					foyer_l.innerHTML =''
-				}else{
+				if (data == 'ok') {
+					foyer_l.innerHTML = ''
+				} else {
 					foyer_l.innerHTML = str
 				}
-			
-				
+
+
 			}
 		})
 	}

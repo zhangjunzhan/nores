@@ -94,23 +94,26 @@
 		login_l.style.display = 'none';
 		chuxian_l.style.display = 'block';
 		var login_data = JSON.parse(localStorage.login);
-	console.log(login_data)
-	var book = JSON.parse(localStorage.book);
-	console.log(book)
-	search_l.onclick = function () {
-		all_i.style.display = 'none';
-		ul.style.display = 'block'
-		$.ajax({
-			url: href + '/users/search_i',
-			type: 'post',
-			data: {
-				names: search_in.value
-			},
-			success(data) {
-				console.log(data);
-				var str = '';
-				for (var i = 0; i < data.length; i++) {
-					str += `
+		console.log(login_data)
+		// var book = JSON.parse(localStorage.book);
+		// console.log(book)
+		search_l.onclick = function () {
+			if (search_in.value == '') {
+				alert('请输入要搜索的内容')
+			} else {
+				all_i.style.display = 'none';
+				ul.style.display = 'block'
+				$.ajax({
+					url: href + '/users/search_i',
+					type: 'post',
+					data: {
+						names: search_in.value
+					},
+					success(data) {
+						console.log(data);
+						var str = '';
+						for (var i = 0; i < data.length; i++) {
+							str += `
 				<div style="width: 20%;height: 280px;margin-left: 2%;margin-right: 2%;float: left;margin-top: 5px;margin-bottom: 5px;" class="l_print" onclick='abc("${data[i].img}","${data[i].loginuid}","${data[i].names}","${data[i].texts}","${data[i].uid}")'>
 					<!-- 封面 -->
 					<img src="${data[i].img}" alt="">
@@ -120,11 +123,12 @@
 					<p style="width: 80%;margin-left: 10%;margin-right: 10%;text-align: center;line-height: 30px;"><span>${login_data.user}</span></p>
 				</div>
 				`
-				}
-				ul.innerHTML = str
+						}
+						ul.innerHTML = str
+					}
+				})
 			}
-		})
-	}
+		}
 	}
 	//退出登录
 	quit_l.onclick = function () {
@@ -141,13 +145,13 @@
 		location.href = 'personalCenter.html'
 	}
 	//模糊搜索
-	
+
 	//推荐
 	// var login_data = JSON.parse(localStorage.login);
 	// console.log(login_data)
-	var book = JSON.parse(localStorage.book);
-	console.log(book)
-	
+	// var book = JSON.parse(localStorage.book);
+	// console.log(book)
+
 	$.ajax({
 		url: href + '/users/recommend_l',
 		type: 'post',
@@ -172,25 +176,25 @@
 	})
 	//详情
 	function abc(a, b, c, d, e) {
-		if(!localStorage.login){
-		
-		location.href='login.html';
-		alert('请先登录')
-	}else{
-		var json = {
-			img: a,
-			loginuid: b,
-			names: c,
-			texts: d,
-			uid: e
+		if (!localStorage.login) {
+
+			location.href = 'login.html';
+			alert('请先登录')
+		} else {
+			var json = {
+				img: a,
+				loginuid: b,
+				names: c,
+				texts: d,
+				uid: e
+			}
+			localStorage.books = JSON.stringify(json)
+			// alert(123)
+			location.href = 'details_page.html'
 		}
-		localStorage.books = JSON.stringify(json)
-		// alert(123)
-		location.href = 'details_page.html'
+
 	}
-		
-	}
-	
+
 </script>
 
 </html>

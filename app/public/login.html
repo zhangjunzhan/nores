@@ -1,37 +1,85 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
 	<meta charset="UTF-8">
 	<title>登录</title>
 	<style>
-		*{margin: 0;padding: 0;box-sizing: border-box;}
-		body{background: #fafafa}
-		.clearfix:before,.clearfix:after{content:'';display:block;clear:both;width:0;visibility:hidden}
-		.clearfix{zoom:1;}
-		#img_l img{
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			background: #fafafa
+		}
+
+		.clearfix:before,
+		.clearfix:after {
+			content: '';
+			display: block;
+			clear: both;
+			width: 0;
+			visibility: hidden
+		}
+
+		.clearfix {
+			zoom: 1;
+		}
+
+		#img_l img {
 			width: 100%;
 			height: 100%;
 			border-radius: 50%
 		}
-		.login_z{text-align: center;}
-		.login_z img{height: 50px;width: 200px;}
-		#z_l{padding: 10px;}
-		.btn_z{color: white;cursor: pointer;}
-		.active{color: rgb(179, 44, 44)}
-		#login_up{padding: 10px 15px;font-size: 20px;}
-		#login_in{padding: 10px 15px;font-size: 20px;}
+
+		.login_z {
+			text-align: center;
+		}
+
+		.login_z img {
+			height: 50px;
+			width: 200px;
+		}
+
+		#z_l {
+			padding: 10px;
+		}
+
+		.btn_z {
+			color: white;
+			cursor: pointer;
+		}
+
+		.active {
+			color: rgb(179, 44, 44)
+		}
+
+		#login_up {
+			padding: 10px 15px;
+			font-size: 20px;
+		}
+
+		#login_in {
+			padding: 10px 15px;
+			font-size: 20px;
+		}
 	</style>
 	<script type="text/javascript" src="jquery.js"></script>
 </head>
+
 <body>
 	<div class="clearfix" style="margin: 50px auto" class="clearfix">
 		<div style="float: left;width: 30%;height: 500px;padding-left: 10%;" class="clearfix">
-			<div style="width: 500px;height:500px;background-size: 100% 100%;background-image: url('image/header-logonew@2x.0.2.png')">
-				
+			<div
+				style="width: 500px;height:500px;background-size: 100% 100%;background-image: url('image/header-logonew@2x.0.2.png')">
+
 			</div>
 		</div>
 		<div style="float: left;width: 50%;height: 500px;padding-left: 10%;" class="clearfix">
-			<div class="clearfix" style="margin-right: 10%;margin-left: 10%;width: 80%;height: 90%;margin-top: 5%;margin-bottom: 5%;">
+			<div class="clearfix"
+				style="margin-right: 10%;margin-left: 10%;width: 80%;height: 90%;margin-top: 5%;margin-bottom: 5%;">
 				<!-- login -->
 				<div class="login_z"><img src="image/logo.beebc.png" alt=""></div>
 				<div style="text-align: center;font-size: 20px;background: darkgray;">
@@ -41,8 +89,9 @@
 				<!-- 注册 -->
 				<div style="" id="z_l" class="div">
 					<!-- 头像 -->
-					<div style="height: 80px;width: 80px;border-radius: 50%;margin:0 auto;border:1px solid #ccc" id="img_l">
-						
+					<div style="height: 80px;width: 80px;border-radius: 50%;margin:0 auto;border:1px solid #ccc"
+						id="img_l">
+
 					</div>
 					<div style="width: 100%;height: 40px;margin-top: 5px;line-height: 40px;">
 						选择头像：<input type="file" id="files_l" accept="image/*">
@@ -74,86 +123,101 @@
 </body>
 <script type="text/javascript">
 	//登录注册选项卡
-	$('.btn_z').click(function(){
+	$('.btn_z').click(function () {
 		$(this).addClass('active').siblings().removeClass('active')
 		$('.div').hide().eq($(this).index()).show();
 	})
 	var href = 'http://localhost:8000';
-	var imgurl=''
+	var imgurl = ''
 	// 头像
-	files_l.onchange = function(){
+	files_l.onchange = function () {
 		var f = files_l.files[0];
 		var d = new FormData;
-		d.append('img',f);
+		d.append('img', f);
 		console.log(d)
 		$.ajax({
-			url:href+'/files/img',
-			type:'post',
-			data:d,
-			processData:false,
-			contentType:false,
-			success(data){
+			url: href + '/files/img',
+			type: 'post',
+			data: d,
+			processData: false,
+			contentType: false,
+			success(data) {
 				console.log(data);
-				imgurl=href+data;
+				imgurl = href + data;
 				img_l.innerHTML = `<img src='${href}${data}'>`;
 			}
 		})
 	}
 	//注册
-	login_up.onclick = function(){
-		 $.ajax({
-                url:href+'/users/up',
-                type:'post',
-                data:{
-                    img:imgurl,
-                    names:names_l.value,
-                    user:user_l.value,
-                    pass:pass_l.value
-                },
-                success(data){
-                    console.log(data)
-                    if(data == 'ok'){
-                        alert('注册成功了')
-                        z_l.style.display = 'none';
-						d_l.style.display = 'block';
-                        img_l.innerHTML = ''
-                        names_l.value = '';
-                        user_l.value = '';
-                       	pass_l.value = '';
-                       
-                    }else{
-                        alert('注册失败');
-                        img_l.innerHTML = ''
-                        names_l.value = '';
-                        user_l.value = '';
-                       	pass_l.value = '';
-                    }
-                }
-            })
-		
+	login_up.onclick = function () {
+		if (files_l.value == '') {
+			alert('请选择头像')
+		} else if (names_l.value == '') {
+			alert('请输入昵称')
+		} else if (user_l.value == '' || pass_l.value == '') {
+			alert('请输入账号或密码')
+		} else if (/[\u4E00-\u9FA5]/g.test(user_l.value) || /[\u4E00-\u9FA5]/g.test(pass_l.value)) {
+			alert('不能出现中文');
+		} else {
+			$.ajax({
+				url: href + '/users/up',
+				type: 'post',
+				data: {
+					img: imgurl,
+					names: names_l.value,
+					user: user_l.value,
+					pass: pass_l.value
+				},
+				success(data) {
+					console.log(data)
+					if (data == 'ok') {
+						alert('注册成功了')
+						img_l.innerHTML = ''
+						names_l.value = '';
+						user_l.value = '';
+						pass_l.value = '';
+
+					} else {
+						alert('注册失败');
+						img_l.innerHTML = ''
+						names_l.value = '';
+						user_l.value = '';
+						pass_l.value = '';
+					}
+				}
+			})
+		}
+
 	}
 	//登录
-	login_in.onclick = function(){
-		$.ajax({
-			url:href+'/users/in',
-			type:'post',
-			data:{
-				user:user_in.value,
-				pass:pass_in.value
-			},
-			success(data){
-				console.log(data);
-				if(data == 'ok'){
-					alert('账号和密码不匹配')
-				}else{
-					alert('登录成功');
-					localStorage.login = JSON.stringify(data)
-                    console.log(localStorage.login);
-                    location.href='index.html'
+	login_in.onclick = function () {
+		if (user_in.value == '' || pass_in.value == '') {
+			alert('请输入账号或密码')
+		} else if (/[\u4E00-\u9FA5]/g.test(user_in.value) || /[\u4E00-\u9FA5]/g.test(pass_in.value)) {
+			alert('不能出现中文');
+		} else {
+			$.ajax({
+				url: href + '/users/in',
+				type: 'post',
+				data: {
+					user: user_in.value,
+					pass: pass_in.value
+				},
+				success(data) {
+					console.log(data);
+					if (data == 'ok') {
+						alert('账号和密码不匹配')
+					} else {
+						alert('登录成功');
+						localStorage.login = JSON.stringify(data)
+						console.log(localStorage.login);
+						location.href = 'index.html'
+					}
 				}
-			}
-		})
+			})
+		}
 
 	}
 </script>
+
 </html>

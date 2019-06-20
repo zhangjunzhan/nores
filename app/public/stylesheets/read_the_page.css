@@ -18,7 +18,7 @@ em,i{font-style: normal;}
 .z_login_up{color: #cccccc}
 .z_login_in:hover,.z_login_up:hover{color: red;cursor: pointer;transition:.5s;}
 /* 内容 */
-.content{width: 80%;margin: 0 auto;height: 1000px;background: palegoldenrod;padding: 5%;}
+.content{width: 80%;margin: 0 auto;background: palegoldenrod;padding: 5%;}
 .content .title{text-align: center;height: 60px;line-height: 60px;font-size: 24px;font-weight: bold;}
 .content>p{text-indent: 2em;line-height: 30px;font-size: 20px;}
 /* 上切换 */
