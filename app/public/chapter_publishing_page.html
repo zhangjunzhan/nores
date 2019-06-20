@@ -348,6 +348,8 @@
         message_txt_intro_z.innerText=`${book.texts}`
     }
     //章节更新
+    var book = JSON.parse(localStorage.book);
+        console.log(book);
     content_btn.onclick = function(){
         var book = JSON.parse(localStorage.book);
         console.log(book);
@@ -358,7 +360,8 @@
                 fiction_uid:book.uid,
                 section:name_txt.value,
                 names:name_z.value,
-                texts:$('#editBox').text()
+                texts:$('#editBox').text(),
+                xm:book.names
             },
             success(data){
                 console.log(data)

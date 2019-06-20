@@ -107,11 +107,41 @@
     //阅读页面
     var uid = JSON.parse(localStorage.uid)
     console.log(uid);
-    $.ajax({
+    var names = JSON.parse(localStorage.names)
+    console.log(names);
+    // $.ajax({
+    //     url: href + '/users/read',
+    //     type: 'post',
+    //     data: {
+    //         // names:
+    //         uid: uid.uid
+    //     },
+    //     success(data) {
+    //         console.log(data)
+    //         var str = `
+    //     <div class="title">
+    //         ${data[0].section}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>${data[0].names}</span>
+    //     </div>
+    //     <!-- 上切换 -->
+    //     <ul class="cut_up">
+    //         <li><a href="javascript:;">上一章</a></li>
+    //         <li><a href="javascript:;">目录</a></li>
+    //         <li><a href="javascript:;">下一章</a></li>
+    //     </ul>
+    //     <p>${data[0].texts}</p>
+        
+    //     `;
+
+    //     abcde.innerHTML = str
+    //     }
+    // })
+     $.ajax({
         url: href + '/users/read',
         type: 'post',
         data: {
-            uid: uid.uid
+            names:uid.uid,
+            woc:uid.names
+            // uid: names.uid
         },
         success(data) {
             console.log(data)

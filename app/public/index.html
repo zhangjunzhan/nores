@@ -41,13 +41,13 @@
 				<input type="text" style="width: 75%;margin-left: 7%;height: 40px;" id="search_in"><button
 					style="width: 5%;height: 40px;" id="search_l">搜索</button>
 			</div>
-			<div style="padding-left: 7%;margin-top: 10px;" class="l_recommend">
+			<!-- <div style="padding-left: 7%;margin-top: 10px;" class="l_recommend">
 				<span>aa</span>
 				<span>bb</span>
 				<span>cc</span>
 				<span>dd</span>
 				<span>ee</span>
-			</div>
+			</div> -->
 		</div>
 		<!-- 推荐 -->
 		<div class="l_box clearfix" style="margin-top: 10px;" id="all_i">
@@ -92,24 +92,8 @@
 		var login_data = JSON.parse(localStorage.login);
 		console.log(login_data)
 		login_l.style.display = 'none';
-		chuxian_l.style.display = 'block'
-	}
-	//退出登录
-	quit_l.onclick = function () {
-		chuxian_l.style.display = 'none';
-		login_l.style.display = 'block';
-		localStorage.login = ''
-	}
-	//书架
-	bookrack_l.onclick = function () {
-		location.href = 'bookrack.html'
-	}
-	//个人中心
-	personalCenter_l.onclick = function () {
-		location.href = 'personalCenter.html'
-	}
-	//模糊搜索
-	var login_data = JSON.parse(localStorage.login);
+		chuxian_l.style.display = 'block';
+		var login_data = JSON.parse(localStorage.login);
 	console.log(login_data)
 	var book = JSON.parse(localStorage.book);
 	console.log(book)
@@ -127,7 +111,7 @@
 				var str = '';
 				for (var i = 0; i < data.length; i++) {
 					str += `
-				<div style="width: 20%;height: 280px;margin-left: 2%;margin-right: 2%;float: left;margin-top: 5px;margin-bottom: 5px;" class="l_print">
+				<div style="width: 20%;height: 280px;margin-left: 2%;margin-right: 2%;float: left;margin-top: 5px;margin-bottom: 5px;" class="l_print" onclick='abc("${data[i].img}","${data[i].loginuid}","${data[i].names}","${data[i].texts}","${data[i].uid}")'>
 					<!-- 封面 -->
 					<img src="${data[i].img}" alt="">
 					<!-- 书名 -->
@@ -141,12 +125,35 @@
 			}
 		})
 	}
+	}
+	//退出登录
+	quit_l.onclick = function () {
+		chuxian_l.style.display = 'none';
+		login_l.style.display = 'block';
+		localStorage.login = ''
+	}
+	//书架
+	bookrack_l.onclick = function () {
+		location.href = 'bookrack.html'
+	}
+	//个人中心
+	personalCenter_l.onclick = function () {
+		location.href = 'personalCenter.html'
+	}
+	//模糊搜索
+	
 	//推荐
+	// var login_data = JSON.parse(localStorage.login);
+	// console.log(login_data)
+	var book = JSON.parse(localStorage.book);
+	console.log(book)
+	
 	$.ajax({
 		url: href + '/users/recommend_l',
 		type: 'post',
 		success(data) {
 			console.log(data)
+
 			var str = '';
 			for (var i = 0; i < data.length; i++) {
 				str += `
@@ -156,7 +163,7 @@
 				<!-- 书名 -->
 				<p style="width: 80%;margin-left: 10%;margin-right: 10%;text-align: center;line-height: 30px;">《<span>${data[i].names}</span>》</p>
 				<!-- 作者 -->
-				<p style="width: 80%;margin-left: 10%;margin-right: 10%;text-align: center;line-height: 30px;">作者：<span>${login_data.user}</span></p>
+				<p style="width: 80%;margin-left: 10%;margin-right: 10%;text-align: center;line-height: 30px;">作者：<span>${data[i].zz}</span></p>
 			</div>
 					`
 			}
@@ -165,6 +172,11 @@
 	})
 	//详情
 	function abc(a, b, c, d, e) {
+		if(!localStorage.login){
+		
+		location.href='login.html';
+		alert('请先登录')
+	}else{
 		var json = {
 			img: a,
 			loginuid: b,
@@ -176,6 +188,9 @@
 		// alert(123)
 		location.href = 'details_page.html'
 	}
+		
+	}
+	
 </script>
 
 </html>

@@ -153,6 +153,8 @@
 		})
 	}
 	//创建小说完成
+	var login_data = JSON.parse(localStorage.login);
+		console.log(login_data)
 	typein_l.onclick = function () {
 		// alert(123)
 		$.ajax({
@@ -162,7 +164,8 @@
 				img: imgurl,
 				names: names_p.value,
 				texts: $('#text_p').text(),
-				loginuid: login_data.uid
+				loginuid: login_data.uid,
+				zz:login_data.names
 			},
 			success(data) {
 				console.log(data)
@@ -177,6 +180,11 @@
 		})
 	}
 	//个人中心小说大厅
+	// if($('#foyer_l').html('')){
+	// 	hall()
+	// }else{
+	// 		hall()
+	// }
 	hall()
 	function hall() {
 		$.ajax({
@@ -187,7 +195,7 @@
 			},
 			success(data) {
 				console.log(data)
-				var str = '';
+					var str = '';
 				for (var i = 0; i < data.length; i++) {
 					str += `
 			<div class="l_print fl" style="width:30%;border:1px solid #ccc;">
@@ -206,7 +214,13 @@
 			</div>
 				`
 				}
-				foyer_l.innerHTML = str
+				if(data == 'ok'){
+					foyer_l.innerHTML =''
+				}else{
+					foyer_l.innerHTML = str
+				}
+			
+				
 			}
 		})
 	}

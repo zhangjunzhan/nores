@@ -93,7 +93,7 @@
 			var str = '';
 			for(var i=0;i<data.length;i++){
 				str+=`
-			<div style="width: 20%;height: 300px;float: left;border:1px solid; padding:0;" class="l_print">
+			<div style="width: 20%;height: 300px;float: left;border:1px solid; padding:0;" class="l_print" onclick = 'ad("${data[i].names}","${data[i].uid}")'>
 				<!-- 封面 -->
 				<img src="${data[i].img}" alt="">
 				<!-- 书名 -->
@@ -128,5 +128,33 @@
 			}
 		})
 	}
+	function ad(a,b){
+		var json = {
+			names:a,
+			uid:b
+		}
+		localStorage.names = JSON.stringify(json)
+		alert(1233);
+		location.href = 'read_the_page.html'
+	}
+	// 	function abc(a, b, c, d, e) {
+	// 	if(!localStorage.login){
+		
+	// 	location.href='login.html';
+	// 	alert('请先登录')
+	// }else{
+	// 	var json = {
+	// 		img: a,
+	// 		loginuid: b,
+	// 		names: c,
+	// 		texts: d,
+	// 		uid: e
+	// 	}
+	// 	localStorage.books = JSON.stringify(json)
+	// 	// alert(123)
+	// 	location.href = 'details_page.html'
+	// }
+		
+	// }
 </script>
 </html>

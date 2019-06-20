@@ -57,15 +57,15 @@ router.post('/novel',(req,res)=>{
 	console.log(json);
 	pool.conn({
 		arr:[json.names],
-		sql:'select names from found where names=?',
+		sql:'select * from found where names=?',
 		success(data){
 			if(data.length){
 				res.send('账号已存在');
 			}else{
 				// res.send('ok')
 				pool.conn({
-					arr:[json.img,json.names,json.texts,json.loginuid],
-					sql:'insert into found(img,names,texts,loginuid)values(?,?,?,?)',
+					arr:[json.img,json.names,json.texts,json.loginuid,json.zz],
+					sql:'insert into found(img,names,texts,loginuid,zz)values(?,?,?,?,?)',
 					success(data){
 						res.send('ok')
 					},
@@ -124,16 +124,16 @@ router.post('/section_c',(req,res)=>{
 	var json = req.body;
 	console.log(json);
 	pool.conn({
-		arr:[json.section],
-		sql:'select section from section_l where section=?',
+		arr:[json.section,json.xm],
+		sql:'select section from section_l where section=? and xm=?',
 		success(data){
 			if(data.length){
 				res.send('账号已存在');
 			}else{
 				// res.send('ok')
 				pool.conn({
-					arr:[json.fiction_uid,json.section,json.names,json.texts],
-					sql:'insert into section_l(fiction_uid,section,names,texts)values(?,?,?,?)',
+					arr:[json.fiction_uid,json.section,json.names,json.texts,json.xm],
+					sql:'insert into section_l(fiction_uid,section,names,texts,xm)values(?,?,?,?,?)',
 					success(data){
 						res.send('ok')
 					},
@@ -203,7 +203,7 @@ router.post('/recommend_l',(req,res)=>{
 	console.log(json);
 	pool.conn({
 		arr:[],
-		sql:' select * from found limit 0,6',
+		sql:' select * from found limit 0,8',
 		success(data){
 			res.send(data)
 		},
@@ -342,8 +342,8 @@ router.post('/read',(req,res)=>{
 	var json = req.body;
 	console.log(json);
 	pool.conn({
-		arr:[json.uid],
-		sql:'select * from section_l where uid=?',
+		arr:[json.names,json.woc],
+		sql:'select * from section_l where xm=? and names=?',
 		success(data){
 			res.send(data)
 		},
