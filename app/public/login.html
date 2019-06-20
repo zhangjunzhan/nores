@@ -4,6 +4,8 @@
 	<meta charset="UTF-8">
 	<title>登录</title>
 	<style>
+		*{margin: 0;padding: 0;box-sizing: border-box;}
+		body{background: #fafafa}
 		.clearfix:before,.clearfix:after{content:'';display:block;clear:both;width:0;visibility:hidden}
 		.clearfix{zoom:1;}
 		#img_l img{
@@ -11,22 +13,33 @@
 			height: 100%;
 			border-radius: 50%
 		}
+		.login_z{text-align: center;}
+		.login_z img{height: 50px;width: 200px;}
+		#z_l{padding: 10px;}
+		.btn_z{color: white;cursor: pointer;}
+		.active{color: rgb(179, 44, 44)}
+		#login_up{padding: 10px 15px;font-size: 20px;}
+		#login_in{padding: 10px 15px;font-size: 20px;}
 	</style>
 	<script type="text/javascript" src="jquery.js"></script>
 </head>
 <body>
-	<div class="clearfix" style="margin-left: 10%;margin-right: 10%" class="clearfix">
-		<div style="float: left;width: 50%;height: 500px;" class="clearfix">
-			<div style="width: 80%;height: 80%;margin:10%;background-image: url(https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1718395925,3485808025&fm=27&gp=0.jpg);background-size: 100% 100%">
+	<div class="clearfix" style="margin: 50px auto" class="clearfix">
+		<div style="float: left;width: 30%;height: 500px;padding-left: 10%;" class="clearfix">
+			<div style="width: 500px;height:500px;background-size: 100% 100%;background-image: url('image/header-logonew@2x.0.2.png')">
 				
 			</div>
 		</div>
-		<div style="float: left;width: 50%;height: 500px;" class="clearfix">
+		<div style="float: left;width: 50%;height: 500px;padding-left: 10%;" class="clearfix">
 			<div class="clearfix" style="margin-right: 10%;margin-left: 10%;width: 80%;height: 90%;margin-top: 5%;margin-bottom: 5%;">
 				<!-- login -->
-				<div style="margin-top: 30px;line-height: 30px;float: left;margin-left: 40%;border:1px solid #ccc;padding:10px;width: 20%;text-align: center;">login</div>
+				<div class="login_z"><img src="image/logo.beebc.png" alt=""></div>
+				<div style="text-align: center;font-size: 20px;background: darkgray;">
+					<span class="btn_z active" id="btn_z_up">注册</span>
+					/ <span span class="btn_z" id="btn_z_in">登录</span>
+				</div>
 				<!-- 注册 -->
-				<div style="width: 90%;margin-left: 5%;margin-right: 5%;height:60%;float: left;margin-top: 5px;border:1px solid #ccc;" id="z_l">
+				<div style="" id="z_l" class="div">
 					<!-- 头像 -->
 					<div style="height: 80px;width: 80px;border-radius: 50%;margin:0 auto;border:1px solid #ccc" id="img_l">
 						
@@ -43,26 +56,28 @@
 					<div style="width: 100%;height: 40px;margin-top: 5px;line-height: 40px;">
 						密码：<input type="text" style="width: 85%" id="pass_l">
 					</div>
+					<div style="text-align: center;"><button style="" id="login_up">注册</button></div>
 				</div>
 				<!-- 登录 -->
-				<div style="width: 90%;margin-left: 5%;margin-right: 5%;height:60%;float: left;margin-top: 5px;display: none;border:1px solid #ccc;" id="d_l">
+				<div style="display: none" id="d_l" class="div">
 					<div style="width: 100%;height: 40px;margin-top: 5px;line-height: 40px;">
 						账号：<input type="text" style="width: 85%" id="user_in">
 					</div>
 					<div style="width: 100%;height: 40px;margin-top: 5px;line-height: 40px;">
 						密码：<input type="text" style="width: 85%" id="pass_in">
 					</div>
-				</div>
-				<!-- 底部 -->
-				<div style="width: 90%;margin-left: 5%;margin-right: 5%;height:15%;float: left;margin-top: 10px;">
-					<button style="height: 80%;margin-left:10%;float: left;width: 30%;margin-top: 5px;" id="login_in">登录</button>
-					<button style="height: 80%;margin-right:10%;float: right;width: 30%;margin-top: 5px;" id="login_up">注册</button>
+					<div style="text-align: center;"><button style="" id="login_in">登录</button></div>
 				</div>
 			</div>
 		</div>
 	</div>
 </body>
 <script type="text/javascript">
+	//登录注册选项卡
+	$('.btn_z').click(function(){
+		$(this).addClass('active').siblings().removeClass('active')
+		$('.div').hide().eq($(this).index()).show();
+	})
 	var href = 'http://localhost:8000';
 	var imgurl=''
 	// 头像
@@ -85,13 +100,7 @@
 		})
 	}
 	//注册
-	login_up.onmousemove=function(){
-		z_l.style.display = 'block';
-		d_l.style.display = 'none';
-	}
 	login_up.onclick = function(){
-		// alert(123)
-		
 		 $.ajax({
                 url:href+'/users/up',
                 type:'post',
@@ -124,10 +133,6 @@
 		
 	}
 	//登录
-	login_in.onmousemove=function(){
-		z_l.style.display = 'none';
-		d_l.style.display = 'block';
-	}
 	login_in.onclick = function(){
 		$.ajax({
 			url:href+'/users/in',

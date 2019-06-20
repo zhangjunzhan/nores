@@ -19,7 +19,7 @@ em,i{font-style: normal;}
 .z_login_in:hover,.z_login_up:hover{color: red;cursor: pointer;transition:.5s;}
 /* 身 */
 /* 小说图片 */
-.container_z{width:80%;margin: 0 auto;height: 1000px;background:#fafafa;}
+.container_z{width:80%;margin: 0 auto;background:#fafafa;}
 .message_z{height: 300px;position: relative;border-bottom: 1px solid rgb(46, 34, 34);}
 .message_img_z{height: 297px;}
 .message_img_z img{width: 150px;height: 200px;margin-left: 50px;margin-top: 50px;}
@@ -49,6 +49,6 @@ em,i{font-style: normal;}
 .add_comment{position: absolute;top: 70px;right: 100px;font-size: 16px;border: none;padding: 5px 10px;background: #bf2c24;color: white}
 .add_comment:hover{cursor: pointer;opacity: .9;transition: .2s}
 /* 尾部 */
-.foot{width: 100%;background:#333;padding: 1px;}
-.foot>p{text-align: center;line-height: 20px;color: #a6a6a6;font-size: 12px;}
+.foot{width: 100%;background:#333;}
+.foot>p{text-align: center;line-height: 20px;color: #a6a6a6;font-size: 12px;margin: 0;}
 .foot>p:hover{cursor: help;}

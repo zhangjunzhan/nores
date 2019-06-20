@@ -32,6 +32,6 @@ em,i{font-style: normal;}
 .cut_down li a{color: #888;text-decoration: none;}
 .cut_down li a:hover{color: red;transition: .2s;}
 /* 尾部 */
-.foot{width: 100%;background:#333;padding: 10px 0;}
-.foot>p{text-align: center;line-height: 20px;color: #a6a6a6;font-size: 12px;}
+.foot{width: 100%;background:#333;}
+.foot>p{text-align: center;line-height: 20px;color: #a6a6a6;font-size: 12px;margin: 0;}
 .foot>p:hover{cursor: help;}

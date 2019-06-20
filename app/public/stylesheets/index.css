@@ -8,7 +8,6 @@ em,i{font-style: normal;}
 .fl{float: left;}
 .fr{float: right;}
 .hearder_z{width: 100%;height:80px;background: #f7f7f7;border-bottom: 1px solid #e5e5e5;padding: 0 10%;line-height: 80px;position: relative;}
-.img_z img{margin-top: 12px;}
 .z_z{background: rgba(194, 181, 181,.5);color: black;border: 1px solid black;font-size: 16px;}
 .z_z:hover{cursor: pointer;background: #888;color: #fff;transition: .5s;}
 .list_z{position: absolute;top: 0px;right: 20px;}
@@ -18,7 +17,8 @@ em,i{font-style: normal;}
 .z_login_in:hover,.z_login_up:hover{color: red;cursor: pointer;transition:.5s;}
 /* lll */
 .l_search{width: 80%;background-color: rgba(224, 197, 197, 0.274);margin: 0 auto;padding-bottom: 20px;}
-.l_box{width: 80%;min-height: 100px;margin: 0 auto;}
+.l_box{width: 80%;margin: 0 auto;}
+#all_i{height: 800px;}
 .l_recommend span{border:1px solid #ccc;padding:0.2em 1em;border-radius: 15px;color: #888;}
 .l_recommend span:hover{cursor: pointer;color: rgb(127, 230, 219);transition:.5s;}
 .l_print{width: 20%;float: left;text-align: center;padding:10px;}
@@ -29,6 +29,6 @@ em,i{font-style: normal;}
 .search_txt::-webkit-input-placeholder {font-size: 14px;padding-bottom: 4px;}
 .txt_name{}
 .txt_author{font-size: 12px;}
-.foot{position: absolute;bottom: 0;left: 0;width: 100%;padding-bottom: 20px;background:#fafafa}
+.foot{width: 100%;background:#fafafa;}
 .foot>p{text-align: center;line-height: 20px;color: #a6a6a6;font-size: 12px;}
 .foot>p:hover{cursor: help;}

@@ -23,10 +23,10 @@
             <a href="index.html"><img src="image/logo.beebc.png" alt=""></a>
         </div>
         <ul class="list_z fr">
-            <li><a href="#" class="a_z" id="chuxian_l">&#9763</a></li>
-            <li class="z_z" id="bookrack_btn">书架</li>
-            <li class="z_z" id="personal_center_btn">个人中心</li>
-            <li class="z_z" id="log_out_btn">退出登录</li>
+            <li><a href="#" class="a_z" id="chuxian_l" style="text-decoration: none;">&#9763</a></li>
+            <li class="z_z" id="bookrack_l">书架</li>
+            <li class="z_z" id="center_z">个人中心</li>
+            <li class="z_z" id="quit_l">退出登录</li>
         </ul>
         <div class="fr" style="padding-right:30px;" id="login_l">
             <span class="z_login_in" id="login_in">登录</span> / <span class="z_login_up" id="login_up">注册</span>
@@ -55,17 +55,8 @@
             <button class="btn_z" id="btn_z">加入书架</button>
         </div>
         <!-- 章节 -->
-        <ul id="list">
-            <!-- <li>第一章&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>天神下凡一锤五</em></li>
-            <li>第一章&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>天神下凡一锤五</em></li>
-            <li>第一章&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>天神下凡一锤五</em></li>
-            <li>第一章&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>天神下凡一锤五</em></li>
-            <li>第一章&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>天神下凡一锤五</em></li>
-            <li>第一章&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>天神下凡一锤五</em></li>
-            <li>第一章&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>天神下凡一锤五</em></li>
-            <li>第一章&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>天神下凡一锤五</em></li>
-            <li>第一章&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>天神下凡一锤五</em></li>
-            <li>第一章&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>天神下凡一锤五</em></li> -->
+        <ul id="list" style="margin: 0;">
+            
         </ul>
         <p class="comment_txt">
             评论信息
@@ -92,38 +83,14 @@
                     </div>
                 </div>
             </div>
+            </p>
             <!-- 结束 -->
-        </p>
-        <div class="comment_box" id="comment_box">
-           <!--  <div class="comment">
-                <div class="comment_img"> -->
-                    <!-- <img src="../../../img/2.jpg" alt=""> -->
-              <!--       <span id="comment_name">人间失格</span>
-                </div>
-                <p class="comment_text">
-                    我是你爸爸,我是你爸爸,我是你爸爸
-                </p> -->
-           <!--  </div>
-            <div class="comment">
-                <div class="comment_img"> -->
-                    <!-- <img src="../../../img/2.jpg" alt=""> -->
-                 <!--    <span id="comment_name">人间失格</span>
-                </div>
-                <p class="comment_text">
-                    我是你爸爸,我是你爸爸,我是你爸爸
-                </p>
-            </div>
-            <div class="comment">
-                <div class="comment_img"> -->
-                    <!-- <img src="../../../img/2.jpg" alt=""> -->
-              <!--       <span id="comment_name">人间失格</span>
-                </div>
-                <p class="comment_text">
-                    我是你爸爸,我是你爸爸,我是你爸爸
-                </p>
-            </div> -->
+        <div class="comment_box clearfix" id="comment_box">
+           
         </div>
+       
     </div>
+    
     <!-- 底部 -->
     <div class="foot">
         <p>下载起点小说客户端</p>
@@ -144,26 +111,32 @@
         $(this).parent().siblings('li').toggle(50);
     })
     //页面跳转
-    bookrack_btn.onclick=function(){
-        location.href='bookrack.html'
-    }
-    personal_center_btn.onclick=function(){
-        location.href='personalCenter.html'
-    }
-    log_out_btn.onclick=function(){
-        localStorage.login='';
-        
-    }
-    // for()
+    //书架跳转
+	bookrack_l.onclick=function(){
+		location.href='bookrack.html'
+	}
+	//退出登录
+	quit_l.onclick=function(){
+		localStorage.login = ''
+		location.href='index.html'
+		login_l.style.display = 'block';
+		chuxian_l.style.display = 'none';
+	}
+	// 中心跳转
+	center_z.onclick=function(){
+		location.href='personalCenter.html'
+	}
     //展开收缩
-    var str = message_txt_intro_z.innerText
-    // console.log(str)
-    message_txt_intro_z.innerText = str.substring(0, 50);
-    var show = true
-    gd.onclick = function () {
-        show = !show //假真 真假
-        message_txt_intro_z.innerHTML = show ? str.substring(0, 50) : str;
-        this.innerHTML = show ? '展开' : '收缩';
+    window.onload=function(){
+        var str = message_txt_intro_z.innerText
+        // console.log(str)
+        message_txt_intro_z.innerText = str.substring(0, 50);
+        var show = true
+        gd.onclick = function () {
+            show = !show //假真 真假
+            message_txt_intro_z.innerHTML = show ? str.substring(0, 50) : str;
+            this.innerHTML = show ? '展开' : '收缩';
+        }
     }
 
     var href = 'http://localhost:8000';
@@ -264,7 +237,7 @@
             var str = '';
             for(var i=0;i<data.length;i++){
                 str+=`
-                    <div class="comment">
+            <div class="comment">
                 <div class="comment_img">
                     <img src="${data[i].img}" alt=""> 
                     <span id="comment_name">${data[i].zuoze}</span>

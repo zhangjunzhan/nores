@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,33 +16,33 @@
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
 </head>
+
 <body>
     <!-- 头 -->
     <div class="hearder_z clearfix">
         <div class="img_z fl">
             <a href="index.html"><img src="image/logo.beebc.png" alt=""></a>
         </div>
-        <ul class="list_z fr">
-            <li><a href="#" class="a_z">&#9763</a></li>
-            <li class="z_z">书架</li>
-            <li class="z_z" id="personal_center_btn">个人中心</li>
-            <li class="z_z">退出登录</li>
+        <ul class="list_z fr" id="chuxian_l" style="dispaly:none;">
+            <li><a href="#" class="a_z" style="text-decoration: none">&#9763</a></li>
+            <li class="z_z" id="bookrack_l">书架</li>
+            <li class="z_z" id="center_z">个人中心</li>
+            <li class="z_z" id="quit_l">退出登录</li>
         </ul>
-        <div class="fr" style="padding-right:30px;">
+        <div class="fr" style="padding-right:30px;" id="login_l">
             <span class="z_login_in" id="login_in">登录</span> / <span class="z_login_up" id="login_up">注册</span>
         </div>
     </div>
     <!-- 内容 -->
     <div class="content" id="abcde">
-    
-       <!--  <div class="title">第一章&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>我是你爸爸</span></div> -->
-        <!-- 上切换 -->
+
+        <!-- <div class="title">第一章&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>我是你爸爸</span></div> -->
         <!-- <ul class="cut_up">
                 <li><a href="javascript:;">上一章</a></li>
                 <li><a href="javascript:;">目录</a></li>
                 <li><a href="javascript:;">下一章</a></li>
-        </ul>
-        <p>
+        </ul> -->
+        <!-- <p>
             约五六秒钟的沉默之后，这才继续说道：“小苍啊，你别怪阿姨心狠，阿姨知道你是好孩子，
             对慧慧也是真心实意的，但是在魔都这个地方，你们俩都是外地人，想在这里扎下根不容易！
             不说别的，就现在这魔都的房价你说就凭你们两人的工资什么时候才能有个窝？
@@ -49,8 +50,8 @@
             你现在是孤身一人家里也没人，帮不上什么忙，我和你叔也是县城里的小公务员，
             就算是拿出了老本，也不过就是二三十万，想在魔都这里给你们别说买一套房了，
             连个首付都不够的啊，现在这里哪里还有四五百万的房子啊……”。
-        </p>
-        <p>
+        </p> -->
+        <!-- <p>
             约五六秒钟的沉默之后，这才继续说道：“小苍啊，你别怪阿姨心狠，阿姨知道你是好孩子，
             对慧慧也是真心实意的，但是在魔都这个地方，你们俩都是外地人，想在这里扎下根不容易！
             不说别的，就现在这魔都的房价你说就凭你们两人的工资什么时候才能有个窝？
@@ -58,10 +59,10 @@
             你现在是孤身一人家里也没人，帮不上什么忙，我和你叔也是县城里的小公务员，
             就算是拿出了老本，也不过就是二三十万，想在魔都这里给你们别说买一套房了，
             连个首付都不够的啊，现在这里哪里还有四五百万的房子啊……”。
-        </p>
-        
-    </div> -->
-    <!-- 下切换 -->
+        </p> -->
+
+    </div>
+    <!-- 下切换-->
     <ul class="cut_down">
         <li><a href="javascript:;">上一章</a></li>
         <li><a href="javascript:;">目录</a></li>
@@ -74,42 +75,63 @@
         <p>广州市天河区黄埔大道西平云路163号广电平云广场B塔13层自编03单元</p>
     </div>
 </body>
-    <script>
-        //跳转列表
-        $('.a_z').parent().siblings('li').hide();
-        $('.a_z').click(function () {
-            $(this).parent().siblings('li').toggle(50);
-        })
-        var href = 'http://localhost:8000';
-        //阅读页面
-        var uid = JSON.parse(localStorage.uid)
-        console.log(uid);
-        $.ajax({
-            url:href+'/users/read',
-            type:'post',
-            data:{
-                uid:uid.uid
-            },
-            success(data){
-                console.log(data)
-                var str=`
-
-        
-        <div class="title">${data[0].section}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>${data[0].names}</span></div>
+<script>
+    //跳转列表
+    $('.a_z').parent().siblings('li').hide();
+    $('.a_z').click(function () {
+        $(this).parent().siblings('li').toggle(50);
+    })
+    //登录后的
+	if (localStorage.login) {
+		var login_data = JSON.parse(localStorage.login);
+		console.log(login_data)
+		login_l.style.display = 'none';
+		chuxian_l.style.display = 'block';
+	}
+	//书架跳转
+	bookrack_l.onclick=function(){
+		location.href='bookrack.html'
+	}
+	//退出登录
+	quit_l.onclick=function(){
+		localStorage.login = ''
+		location.href='index.html'
+		login_l.style.display = 'block';
+		chuxian_l.style.display = 'none';
+	}
+	// 中心跳转
+	center_z.onclick=function(){
+		location.href='personalCenter.html'
+	}
+    var href = 'http://localhost:8000';
+    //阅读页面
+    var uid = JSON.parse(localStorage.uid)
+    console.log(uid);
+    $.ajax({
+        url: href + '/users/read',
+        type: 'post',
+        data: {
+            uid: uid.uid
+        },
+        success(data) {
+            console.log(data)
+            var str = `
+        <div class="title">
+            ${data[0].section}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>${data[0].names}</span>
+        </div>
         <!-- 上切换 -->
         <ul class="cut_up">
-                <li><a href="javascript:;">上一章</a></li>
-                <li><a href="javascript:;">目录</a></li>
-                <li><a href="javascript:;">下一章</a></li>
+            <li><a href="javascript:;">上一章</a></li>
+            <li><a href="javascript:;">目录</a></li>
+            <li><a href="javascript:;">下一章</a></li>
         </ul>
-       ${data[0].texts}
+        <p>${data[0].texts}</p>
         
-    </div>
+        `;
 
-                `;
+        abcde.innerHTML = str
+        }
+    })
+</script>
 
-                abcde.innerHTML=str
-            }
-        })
-    </script>
 </html>
